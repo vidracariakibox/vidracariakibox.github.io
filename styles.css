@@ -1,0 +1,905 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Remover foco visível em elementos interativos */
+button:focus-visible, a:focus-visible {
+    outline: 2px solid #00FF19;
+    outline-offset: 2px;
+}
+
+header {
+    background: #141941;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    gap: 10px; /* Adiciona um espaço de 10px entre o h1 e o logo */
+}
+
+header h1 {
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+}
+/* Estilo para o logo */
+.header-logo {
+    display: block;
+    max-width: 47px; /* A largura do logo é a mesma da altura, já que ele é um ícone */
+    height: 47px;
+}
+
+/* Hero Slider */
+.hero {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero .slide {
+    height: 70vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero .slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.hero .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0;
+    animation: slideUp 1s forwards;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    max-width: 90%;
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translate(-50%, -40%); 
+        opacity: 0; 
+    } 
+    to { 
+        transform: translate(-50%, -50%); 
+        opacity: 1; 
+    } 
+}
+
+.hero .slide-content h2 {
+    font-family: 'Baskervville', serif;
+    font-size: clamp(20px, 4.5vw, 32px);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+
+.hero .slide-content p {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(14px, 2.5vw, 20px);
+    margin: 0;
+}
+
+.hero .controls {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.hero .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.hero .arrow:hover {
+    background: rgba(0, 0, 0, 0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.hero .prev {
+    left: 20px;
+}
+
+.hero .next {
+    right: 20px;
+}
+
+.hero .dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    gap: 10px;
+}
+
+.hero .dot {
+    height: 12px;
+    width: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.hero .dot.active {
+    background: #00FF19;
+    transform: scale(1.2);
+}
+
+.hero .dot:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* CTA Section - Agora na primeira dobra */
+.text-btn {
+    background: #404040;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.text-btn p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 2.5vw, 15px);
+    color: #FFFFFF;
+    margin: 0;
+    text-align: left;
+    flex: 1;
+    min-width: 300px;
+}
+
+.text-btn a {
+    font-family: 'Montserrat', sans-serif;
+    background: #00FF19;
+    color: #000000;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.text-btn a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.text-btn a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Services Section - TAMANHO DAS IMAGENS ATUALIZADO */
+.services {
+    background-color: #F5F5F5;
+    padding: 60px 20px; /*alterado de 60 para 30*/
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.services::after {
+    content: '';
+    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Forma-abstrata.jpg?raw=true');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    z-index: 0;
+    opacity: 0.1;
+    transform: rotate(15deg);
+}
+
+.services h2, .services p, .services-carousel-container {
+    position: relative;
+    z-index: 1;
+}
+
+.services h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 3vw, 15px);
+    color: #000000;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+    letter-spacing: 1px;
+}
+
+.services p {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(16px, 3vw, 18px);
+    color: #000000;
+    margin: 0 0 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-carousel-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.services-carousel {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Desktop Styles - 3 imagens por slide - TAMANHO ATUALIZADO */
+.service-slide {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.service-slide img {
+    width: calc((100% - 20px) / 3);
+    height: auto;
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-slide img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.services .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.services .arrow {
+    color: #ffffff;
+    font-size: 40px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.6);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    border: none;
+}
+
+.services .arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.services .service-prev {
+    position: absolute;
+    left: 20px;
+}
+
+.services .service-next {
+    position: absolute;
+    right: 20px;
+}
+
+.services .dots {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.services .dot {
+    height: 10px;
+    width: 10px;
+    background: #666666;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.services .dot.active {
+    background: #00FF19;
+    transform: scale(1.2);
+}
+
+.services .dot:hover {
+    background: #999999;
+}
+
+/* Testimonials Section - 2 depoimentos em coluna */
+.testimonials {
+    background: #404040;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.testimonials h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 3vw, 15px);
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 0 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: 1px;
+}
+
+.google-title-logo {
+    width: 40px;
+    height: auto;
+}
+
+.testimonials-carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonials-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-slide {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    align-items: center;
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.review-card {
+    background: #f1f1f1;
+    border-radius: 8px;
+    padding: 25px 20px;
+    text-align: left;
+    width: calc(50% - 10px);
+    max-width: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.google-review-logo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 24px;
+    height: auto;
+    opacity: 0.7;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.review-header p {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.review-text {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.testimonials .testimonial-prev, 
+.testimonials .testimonial-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 31px;
+    cursor: pointer;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.testimonials .testimonial-prev:hover, 
+.testimonials .testimonial-next:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.testimonials .testimonial-prev {
+    left: 10px;
+}
+
+.testimonials .testimonial-next {
+    right: 10px;
+}
+
+.testimonials .dots {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.testimonials .dot {
+    height: 10px;
+    width: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.testimonials .dot.active {
+    background: #00FF19;
+    transform: scale(1.2);
+}
+
+.testimonials .dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.total-reviews {
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+.divider {
+    height: 1.5px;
+    background: #FC0606;
+    margin: 0;
+}
+
+/* Footer */
+.footer-grid {
+    background: #141941;
+    padding: 50px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+.footer-grid h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.footer-grid p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.6;
+}
+
+.footer-grid > img {
+    max-width: 200px;
+    height: auto;
+    align-self: center;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.contact-link:hover {
+    opacity: 0.8;
+}
+
+.contact-link img {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-bottom {
+    background: #141941;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.footer-bottom a {
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    opacity: 0.8;
+}
+
+.footer-dev {
+    text-align: right;
+}
+
+/* === RESPONSIVE STYLES === */
+
+/* Tablet e Mobile - ATÉ 768px */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 16px;
+    }
+    .header-logo {
+        max-width: 40px;
+        height: 40px;
+    }
+    .hero {
+        height: 60vh;
+    }
+    
+    .hero .slide {
+        height: 60vh;
+    }
+    
+    .text-btn {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+    
+    .text-btn p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    /* SERVICES MOBILE - TAMANHO ATUALIZADO */
+    .service-slide {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .service-slide img {
+        width: 80%;
+        max-width: 400px;
+        height: auto; /* ← ALTERADO: altura automática do modelo */
+        object-fit: cover; /* ← ALTERADO: cover em vez de contain */
+    }
+    
+    /* Mostrar setas no mobile para serviços */
+    .services .controls {
+        display: flex;
+    }
+    
+    .services .arrow {
+        background: rgba(0, 0, 0, 0.7);
+    }
+    
+    /* TESTIMONIALS MOBILE - 2 cards em coluna */
+    .testimonial-slide {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .review-card {
+        width: 90%;
+        max-width: 500px;
+    }
+    
+    /* Mostrar setas no mobile para depoimentos */
+    .testimonials .testimonial-prev, 
+    .testimonials .testimonial-next {
+        display: flex;
+    }
+    
+    /* CORREÇÃO DAS SETAS INTELIGENTES - MOBILE */
+    .testimonials .testimonial-prev[style*="display: none"],
+    .testimonials .testimonial-next[style*="display: none"] {
+        display: none;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-grid > img {
+        margin: 0 auto;
+    }
+    
+    .contact-link {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .footer-dev {
+        text-align: center;
+    }
+/* ===== OTIMIZAÇÃO TOUCH PARA MOBILE ===== */
+    .services-carousel,
+    .testimonials-carousel {
+        touch-action: pan-y pan-x;
+        -ms-touch-action: pan-y pan-x;
+        -webkit-overflow-scrolling: touch; /* Suave no iOS */
+    }
+    
+    /* Melhorar performance do scroll */
+    .services-carousel-container,
+    .testimonials-carousel-container {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+}
+
+/* Mobile - ATÉ 480px */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 15px;
+    }
+    
+    .hero {
+        height: 50vh;
+    }
+    
+    .hero .slide {
+        height: 50vh;
+    }
+    
+    .hero .arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+    
+    .hero .prev {
+        left: 10px;
+    }
+    
+    .hero .next {
+        right: 10px;
+    }
+    /* Impede que o texto quebre em várias linhas */
+    .no-break {
+    white-space: nowrap;
+    }
+    
+    .text-btn {
+        padding: 35px 20px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: flex-start;
+
+    }
+    
+    .text-btn p {
+        min-width: auto;
+        font-size: 14px;
+        margin-top: -10px;
+        margin-bottom: 5px;
+    }
+    
+    .text-btn a {
+        padding: 12px 30px;
+        width: 100%;
+        justify-content: center;
+        font-size: 15px;
+        margin-top: -3px;
+    }
+    
+    .services {
+        padding: 40px 15px;
+    }
+    
+    .services::after {
+        top: -150px;
+        right: -200px;
+        width: 400px;
+        height: 400px;
+    }
+    
+    .service-slide img {
+        width: 90%;
+    }
+    
+    /* Ajustes para setas no mobile - serviços */
+    .services .arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+    
+    .services .service-prev {
+        left: 10px;
+    }
+    
+    .services .service-next {
+        right: 10px;
+    }
+    
+    .testimonials {
+        padding: 40px 15px;
+    }
+    
+    .testimonials h2 {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    /* Ajustes para setas no mobile - depoimentos */
+    .testimonials .testimonial-prev, 
+    .testimonials .testimonial-next {
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+    }
+    
+    .testimonials .testimonial-prev {
+        left: 5px;
+    }
+    
+    .testimonials .testimonial-next {
+        right: 5px;
+    }
+    
+    .review-card {
+        padding: 20px 15px;
+    }
+    
+    .avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .review-header p {
+        font-size: 14px;
+    }
+    
+    .review-text {
+        font-size: 13px;
+    }
+    
+    .footer-grid {
+        padding: 30px 15px;
+    }
+    
+    .footer-bottom {
+        padding: 15px 20px;
+    }
+}
