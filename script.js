@@ -384,8 +384,8 @@ class ServicesCarousel {
         const touchEndX = e.changedTouches[0].clientX;
         const diffX = this.touchStartX - touchEndX;
         
-        if (diffX > 50) this.next();
-        else if (diffX < -50) this.prev();
+        if (diffX > 10) this.next(); /* Menor sensibilidade */
+        else if (diffX < -10) this.prev();
         
         this.touchStartX = null;
         this.touchStartY = null;
@@ -569,8 +569,8 @@ class TestimonialsCarousel {
         const touchEndX = e.changedTouches[0].clientX;
         const diffX = this.touchStartX - touchEndX;
         
-        if (diffX > 50) this.next();
-        else if (diffX < -50) this.prev();
+        if (diffX > 10) this.next(); /* Menor sensibilidade */
+        else if (diffX < -10) this.prev();
         
         this.touchStartX = null;
         this.touchStartY = null;
