@@ -6,9 +6,9 @@ const urlsToCache = [
   '/styles.css',
   '/script.js',
   'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Logo-da-empresa-somente-imagem.png?raw=true',
-  'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.png?raw=true',
-  'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.png?raw=true',
-  'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-3-compactadas.png?raw=true',
+  'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true',
+  'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.webp?raw=true',
+  'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-3-compactadas.Webp?raw=true',
   'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/icons8-whatsapp-48.png?raw=true',
   'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Logo-da-empresa-512x512-Kibox.png?raw=true',
   'https://fonts.googleapis.com/css2?family=Baskervville:wght@400;700&family=Cinzel:wght@400;700&family=Montserrat:wght@400;500&family=Red+Hat+Display:wght@400;500&display=swap'
