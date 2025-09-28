@@ -16,15 +16,15 @@ body {
 }
 /* Garantir que primeiro slide carregue imediatamente */
 .slide:first-child {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.png?raw=true');
+    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true');
 }
 
 .slide:nth-child(2) {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.png?raw=true');
+    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.webp?raw=true');
 }
 
 .slide:nth-child(3) {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-3-compactadas.png?raw=true');
+    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-3-compactadas.webp?raw=true');
 }
 
 /* Remover foco visível em elementos interativos */
