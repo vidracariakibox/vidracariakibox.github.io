@@ -1010,3 +1010,19 @@ body {
         transition: transform 0.15s ease-out !important;
     }
 }
+/* NO FINAL DO SEU CSS - MANTENHA ISTO */
+body {
+    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.hero .slide-content h2 {
+    font-family: 'Baskervville', 'Times New Roman', Times, serif;
+}
+
+.hero .slide-content p {
+    font-family: 'Red Hat Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.footer-grid h3 {
+    font-family: 'Cinzel', 'Times New Roman', Times, serif;
+}
