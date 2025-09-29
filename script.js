@@ -253,7 +253,7 @@ class ServicesCarousel {
         }
         
         this.currentIndex = 0;
-        this.isMobile = window.innerWidth <= 480;
+        this.isMobile = window.matchMedia('(max-width: 480px)').matches;
         this.slidesPerView = this.isMobile ? 1 : 3;
         this.totalSlides = Math.ceil(serviceImages.length / this.slidesPerView);
         
@@ -410,7 +410,7 @@ class ServicesCarousel {
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                const newIsMobile = window.innerWidth <= 480;
+                const newIsMobile = window.matchMedia('(max-width: 480px)').matches;
                 if (newIsMobile !== this.isMobile) {
                     this.isMobile = newIsMobile;
                     this.slidesPerView = this.isMobile ? 1 : 3;
