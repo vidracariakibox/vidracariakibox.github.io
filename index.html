@@ -5,6 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vidraçaria Kibox - Especialista em Vidro Temperado | Ribeirão Preto</title>
     
+    <!-- CSS CRÍTICO INLINE - CONTEÚDO ACIMA DA DOBRA -->
+    <style>
+    /* HERO SECTION - CRÍTICO */
+    .hero { 
+        position: relative; 
+        height: 80vh; 
+        overflow: hidden; 
+    }
+    .slide { 
+        position: absolute; 
+        width: 100%; 
+        height: 100%; 
+        opacity: 0; 
+        transition: opacity 0.5s ease; 
+        background-size: cover; 
+        background-position: center; 
+    }
+    .slide.active { 
+        opacity: 1; 
+    }
+    .slide-content { 
+        position: absolute; 
+        bottom: 20%; 
+        left: 10%; 
+        color: white; 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .slide-content h2 { 
+        font-size: 2.5rem; 
+        margin-bottom: 1rem; 
+        font-family: 'Baskervville', serif;
+    }
+    .slide-content p { 
+        font-size: 1.2rem; 
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    /* HEADER - CRÍTICO */
+    .header-logo { 
+        max-width: 100px; 
+        height: auto; 
+    }
+    header h1 { 
+        font-size: 1.2rem; 
+        margin: 0; 
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    /* CTA SECTION - CRÍTICO */
+    .text-btn { 
+        padding: 2rem; 
+        text-align: center; 
+        font-family: 'Montserrat', sans-serif;
+    }
+    .text-btn a { 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 0.5rem;
+        background: #25D366; 
+        color: white; 
+        padding: 1rem 2rem;
+        text-decoration: none; 
+        border-radius: 5px; 
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    /* ESTILOS BÁSICOS - CRÍTICO */
+    body { 
+        margin: 0; 
+        font-family: 'Montserrat', sans-serif;
+    }
+    header { 
+        display: flex; 
+        align-items: center; 
+        gap: 1rem; 
+        padding: 1rem; 
+    }
+    </style>
+
     <!-- Otimização Slideshow -->
     <link rel="preload" as="image" href="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true">
     <link rel="preload" as="image" href="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.webp?raw=true">  
@@ -14,6 +94,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- CSS COMPLETO ASSÍNCRONO -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
     
     <!-- META DESCRIPTION ORIGINAL (PERFEITA) -->
     <meta name="description" content="Vidraçaria Kibox: 22 anos de experiência em vidro temperado. Sacada, Box, Espelho, Guarda Corpo. Orçamento rápido em Ribeirão Preto-SP.">
@@ -58,8 +141,6 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WHTX3875');</script>
-    
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
