@@ -14,6 +14,36 @@ body {
     color: #333;
     overflow-x: hidden;
 }
+
+/* ==================== */
+/* OTIMIZAÇÕES DE PERFORMANCE */
+/* ==================== */
+
+/* Aceleração GPU para carousels - ELIMINA REFLOW */
+.slide, 
+.service-slide, 
+.testimonial-slide,
+.services-carousel,
+.testimonials-carousel {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Otimizações para elementos interativos */
+.text-btn a,
+.services .arrow,
+.testimonials .testimonial-prev,
+.testimonials .testimonial-next,
+.review-card {
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ==================== */
+/* FIM DAS OTIMIZAÇÕES */
+/* ==================== */
+
 /* Garantir que primeiro slide carregue imediatamente */
 .slide:first-child {
     background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true');
@@ -52,6 +82,7 @@ header h1 {
     margin: 0;
     text-align: left;
 }
+
 /* Estilo para o logo */
 .header-logo {
     display: block;
@@ -914,4 +945,27 @@ header h1 {
     .footer-bottom {
         padding: 15px 20px;
     }
+}
+
+/* ==================== */
+/* OTIMIZAÇÕES DE PERFORMANCE ADICIONAIS */
+/* ==================== */
+
+/* Melhorar performance de hover em mobile */
+@media (hover: none) {
+    .service-slide img:hover,
+    .review-card:hover,
+    .text-btn a:hover,
+    .services .arrow:hover,
+    .testimonials .testimonial-prev:hover,
+    .testimonials .testimonial-next:hover {
+        transform: none;
+    }
+}
+
+/* Otimização para reduzir repaints */
+.hero .slide,
+.service-slide,
+.testimonial-slide {
+    contain: layout style paint;
 }
