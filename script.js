@@ -138,15 +138,14 @@ const testimonialsData = [
     }
 ];
 
-// ==================== HERO CAROUSEL ====================
-// DECLARAR PRIMEIRO (ordem correta)
+// ==================== HERO CAROUSEL OTIMIZADO ====================
 const slides = document.getElementsByClassName("slide");
 const dots = document.getElementsByClassName("dot");
 
 let slideIndex = 0;
 let autoSlideTimer = null;
 
-// Função para limpar timer (corrige memory leaks)
+// Função para limpar timer
 function clearAutoSlide() {
     if (autoSlideTimer) {
         clearTimeout(autoSlideTimer);
@@ -154,64 +153,70 @@ function clearAutoSlide() {
     }
 }
 
+// ✅ VERSÃO OTIMIZADA - SEM REFLOW FORÇADO
 function showSlides() {
     clearAutoSlide();
     
-    // Verificar se existem slides e dots
     if (slides.length === 0) return;
     
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-        if (dots[i]) dots[i].classList.remove("active");
-    }
-    
-    slideIndex++;
-    if (slideIndex > slides.length) { 
-        slideIndex = 1; 
-    }
-    
-    slides[slideIndex - 1].classList.add("active");
-    if (dots[slideIndex - 1]) {
-        dots[slideIndex - 1].classList.add("active");
-    }
+    // 🎯 AGRUPAR TODAS AS ALTERAÇÕES NO DOM
+    requestAnimationFrame(() => {
+        // Remove todas as classes de uma vez (performance)
+        const activeElements = document.querySelectorAll('.slide.active, .dot.active');
+        activeElements.forEach(el => el.classList.remove('active'));
+        
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+        
+        // Adiciona classes novas de uma vez
+        slides[slideIndex - 1].classList.add('active');
+        if (dots[slideIndex - 1]) {
+            dots[slideIndex - 1].classList.add('active');
+        }
+    });
     
     autoSlideTimer = setTimeout(showSlides, 8000);
 }
 
-// Configurar eventos dos dots (agora dots já está declarado)
+// ✅ CONFIGURAÇÃO OTIMIZADA DOS DOTS
 for (let i = 0; i < dots.length; i++) {
     dots[i].addEventListener("click", () => {
         clearAutoSlide();
-        for (let j = 0; j < slides.length; j++) {
-            slides[j].classList.remove("active");
-            if (dots[j]) dots[j].classList.remove("active");
-        }
-        slideIndex = i + 1;
-        slides[i].classList.add("active");
-        if (dots[i]) dots[i].classList.add("active");
+        
+        requestAnimationFrame(() => {
+            // AGRUPAR TODAS AS ALTERAÇÕES
+            const activeElements = document.querySelectorAll('.slide.active, .dot.active');
+            activeElements.forEach(el => el.classList.remove('active'));
+            
+            slideIndex = i + 1;
+            slides[i].classList.add('active');
+            if (dots[i]) dots[i].classList.add('active');
+        });
+        
         autoSlideTimer = setTimeout(showSlides, 8000);
     });
 }
 
-// Configurar eventos das setas (com verificação de segurança)
+// ✅ CONFIGURAÇÃO OTIMIZADA DAS SETAS
 const prevButton = document.querySelector(".prev");
 const nextButton = document.querySelector(".next");
 
 if (prevButton) {
     prevButton.addEventListener("click", () => {
         clearAutoSlide();
-        slideIndex--;
-        if (slideIndex < 1) slideIndex = slides.length;
         
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].classList.remove("active");
-            if (dots[i]) dots[i].classList.remove("active");
-        }
-        
-        slides[slideIndex - 1].classList.add("active");
-        if (dots[slideIndex - 1]) {
-            dots[slideIndex - 1].classList.add("active");
-        }
+        requestAnimationFrame(() => {
+            const activeElements = document.querySelectorAll('.slide.active, .dot.active');
+            activeElements.forEach(el => el.classList.remove('active'));
+            
+            slideIndex--;
+            if (slideIndex < 1) slideIndex = slides.length;
+            
+            slides[slideIndex - 1].classList.add('active');
+            if (dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add('active');
+            }
+        });
         
         autoSlideTimer = setTimeout(showSlides, 8000);
     });
@@ -221,24 +226,24 @@ if (nextButton) {
     nextButton.addEventListener("click", () => {
         clearAutoSlide();
         
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].classList.remove("active");
-            if (dots[i]) dots[i].classList.remove("active");
-        }
-        
-        slideIndex++;
-        if (slideIndex > slides.length) slideIndex = 1;
-        
-        slides[slideIndex - 1].classList.add("active");
-        if (dots[slideIndex - 1]) {
-            dots[slideIndex - 1].classList.add("active");
-        }
+        requestAnimationFrame(() => {
+            const activeElements = document.querySelectorAll('.slide.active, .dot.active');
+            activeElements.forEach(el => el.classList.remove('active'));
+            
+            slideIndex++;
+            if (slideIndex > slides.length) slideIndex = 1;
+            
+            slides[slideIndex - 1].classList.add('active');
+            if (dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add('active');
+            }
+        });
         
         autoSlideTimer = setTimeout(showSlides, 8000);
     });
 }
 
-// ==================== SERVICES CAROUSEL ====================
+// ==================== SERVICES CAROUSEL OTIMIZADO ====================
 class ServicesCarousel {
     constructor() {
         this.carousel = document.getElementById('servicesCarousel');
@@ -246,7 +251,6 @@ class ServicesCarousel {
         this.prevBtn = document.querySelector('.service-prev');
         this.nextBtn = document.querySelector('.service-next');
         
-        // Verificação de segurança
         if (!this.carousel || !this.dotsContainer) {
             console.warn('ServicesCarousel: Elementos principais não encontrados');
             return;
@@ -256,6 +260,8 @@ class ServicesCarousel {
         this.isMobile = window.matchMedia('(max-width: 480px)').matches;
         this.slidesPerView = this.isMobile ? 1 : 3;
         this.totalSlides = Math.ceil(serviceImages.length / this.slidesPerView);
+        
+        this.resizeTimeout = null; // ✅ DEBOUNCE OTIMIZADO
         
         this.init();
         this.setupEventListeners();
@@ -284,7 +290,6 @@ class ServicesCarousel {
                 img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;
                 img.loading = i === 0 ? 'eager' : 'lazy';
                 
-                // Fallback para erro de imagem
                 img.onerror = () => {
                     console.warn(`Imagem não carregada: ${src}`);
                     img.style.backgroundColor = '#f0f0f0';
@@ -318,22 +323,24 @@ class ServicesCarousel {
         }
     }
     
+    // ✅ VERSÃO OTIMIZADA - SEM REFLOW FORÇADO
     updateDisplay() {
-        const movePercentage = this.currentIndex * 100;
-        this.carousel.style.transform = `translateX(-${movePercentage}%)`;
-        
-        const dots = this.dotsContainer.querySelectorAll('.dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentIndex);
+        requestAnimationFrame(() => {
+            const movePercentage = this.currentIndex * 100;
+            this.carousel.style.transform = `translateX(-${movePercentage}%)`;
+            
+            const dots = this.dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentIndex);
+            });
+            
+            if (this.prevBtn) {
+                this.prevBtn.style.display = this.currentIndex === 0 ? 'none' : 'flex';
+            }
+            if (this.nextBtn) {
+                this.nextBtn.style.display = this.currentIndex === this.totalSlides - 1 ? 'none' : 'flex';
+            }
         });
-        
-        // Setas inteligentes (com verificação)
-        if (this.prevBtn) {
-            this.prevBtn.style.display = this.currentIndex === 0 ? 'none' : 'flex';
-        }
-        if (this.nextBtn) {
-            this.nextBtn.style.display = this.currentIndex === this.totalSlides - 1 ? 'none' : 'flex';
-        }
     }
     
     next() {
@@ -384,12 +391,29 @@ class ServicesCarousel {
         const touchEndX = e.changedTouches[0].clientX;
         const diffX = this.touchStartX - touchEndX;
         
-        if (diffX > 10) this.next(); /* Menor sensibilidade */
+        if (diffX > 10) this.next();
         else if (diffX < -10) this.prev();
         
         this.touchStartX = null;
         this.touchStartY = null;
         this.isScrolling = false;
+    }
+    
+    // ✅ DEBOUNCE OTIMIZADO PARA RESIZE
+    handleResize = () => {
+        clearTimeout(this.resizeTimeout);
+        this.resizeTimeout = setTimeout(() => {
+            requestAnimationFrame(() => {
+                const newIsMobile = window.matchMedia('(max-width: 480px)').matches;
+                if (newIsMobile !== this.isMobile) {
+                    this.isMobile = newIsMobile;
+                    this.slidesPerView = this.isMobile ? 1 : 3;
+                    this.totalSlides = Math.ceil(serviceImages.length / this.slidesPerView);
+                    this.currentIndex = 0;
+                    this.init();
+                }
+            });
+        }, 500); // ✅ DEBOUNCE MAIOR PARA PERFORMANCE
     }
     
     setupEventListeners() {
@@ -400,30 +424,16 @@ class ServicesCarousel {
             this.prevBtn.addEventListener('click', () => this.prev());
         }
         
-        // Touch events corrigidos
         this.carousel.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
         this.carousel.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: false });
         this.carousel.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
         
-        // Debounce no resize para performance
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                const newIsMobile = window.matchMedia('(max-width: 480px)').matches;
-                if (newIsMobile !== this.isMobile) {
-                    this.isMobile = newIsMobile;
-                    this.slidesPerView = this.isMobile ? 1 : 3;
-                    this.totalSlides = Math.ceil(serviceImages.length / this.slidesPerView);
-                    this.currentIndex = 0;
-                    this.init();
-                }
-            }, 250);
-        });
+        // ✅ EVENTO RESIZE OTIMIZADO
+        window.addEventListener('resize', this.handleResize, { passive: true });
     }
 }
 
-// ==================== TESTIMONIALS CAROUSEL ====================
+// ==================== TESTIMONIALS CAROUSEL OTIMIZADO ====================
 class TestimonialsCarousel {
     constructor() {
         this.carousel = document.querySelector('.testimonials-carousel');
@@ -431,7 +441,6 @@ class TestimonialsCarousel {
         this.nextBtn = document.querySelector('.testimonial-next');
         this.dotsContainer = document.querySelector('.testimonial-dots');
         
-        // Verificação mais permissiva - só precisa do carrossel
         if (!this.carousel) {
             console.warn('TestimonialsCarousel: Carrossel não encontrado');
             return;
@@ -502,23 +511,25 @@ class TestimonialsCarousel {
         }
     }
     
+    // ✅ VERSÃO OTIMIZADA
     updateDisplay() {
-        this.carousel.style.transform = `translateX(-${this.currentIndex * 100}%)`;
-        
-        if (this.dotsContainer) {
-            const dots = this.dotsContainer.querySelectorAll('.dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === this.currentIndex);
-            });
-        }
-        
-        // Setas inteligentes (com verificações seguras)
-        if (this.prevBtn) {
-            this.prevBtn.style.display = this.currentIndex === 0 ? 'none' : 'flex';
-        }
-        if (this.nextBtn) {
-            this.nextBtn.style.display = this.currentIndex === this.totalSlides - 1 ? 'none' : 'flex';
-        }
+        requestAnimationFrame(() => {
+            this.carousel.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+            
+            if (this.dotsContainer) {
+                const dots = this.dotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+            
+            if (this.prevBtn) {
+                this.prevBtn.style.display = this.currentIndex === 0 ? 'none' : 'flex';
+            }
+            if (this.nextBtn) {
+                this.nextBtn.style.display = this.currentIndex === this.totalSlides - 1 ? 'none' : 'flex';
+            }
+        });
     }
     
     next() {
@@ -569,7 +580,7 @@ class TestimonialsCarousel {
         const touchEndX = e.changedTouches[0].clientX;
         const diffX = this.touchStartX - touchEndX;
         
-        if (diffX > 10) this.next(); /* Menor sensibilidade */
+        if (diffX > 10) this.next();
         else if (diffX < -10) this.prev();
         
         this.touchStartX = null;
@@ -585,21 +596,20 @@ class TestimonialsCarousel {
             this.prevBtn.addEventListener('click', () => this.prev());
         }
         
-        // Touch events corrigidos
         this.carousel.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
         this.carousel.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: false });
         this.carousel.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
     }
 }
 
-// ==================== INICIALIZAÇÃO SEGURA ====================
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Inicializando Vidraçaria Kibox...');
+// ==================== INICIALIZAÇÃO SEGURA E OTIMIZADA ====================
+function initCarousels() {
+    console.log('🚀 Inicializando Vidraçaria Kibox (Otimizado)...');
     
     // Inicializar Hero Carousel apenas se existirem slides
     if (slides.length > 0) {
         showSlides();
-        console.log('✅ Hero Carousel inicializado');
+        console.log('✅ Hero Carousel inicializado (Otimizado)');
     } else {
         console.warn('⚠️ Hero Carousel: Nenhum slide encontrado');
     }
@@ -607,7 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar Services Carousel
     try {
         new ServicesCarousel();
-        console.log('✅ Services Carousel inicializado');
+        console.log('✅ Services Carousel inicializado (Otimizado)');
     } catch (error) {
         console.warn('⚠️ Services Carousel: Erro na inicialização', error);
     }
@@ -615,21 +625,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar Testimonials Carousel
     try {
         new TestimonialsCarousel();
-        console.log('✅ Testimonials Carousel inicializado');
+        console.log('✅ Testimonials Carousel inicializado (Otimizado)');
     } catch (error) {
         console.warn('⚠️ Testimonials Carousel: Erro na inicialização', error);
     }
     
-    console.log('🎉 Site Vidraçaria Kibox carregado com sucesso!');
-});
+    console.log('🎉 Site Vidraçaria Kibox carregado com performance máxima!');
+}
 
-// Fallback para caso o DOM já esteja carregado
+// ✅ INICIALIZAÇÃO OTIMIZADA
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initCarousels);
 } else {
-    setTimeout(() => {
-        if (slides.length > 0) showSlides();
-        try { new ServicesCarousel(); } catch (e) {}
-        try { new TestimonialsCarousel(); } catch (e) {}
-    }, 100);
+    // Se o DOM já estiver carregado, usar setTimeout para não bloquear
+    setTimeout(initCarousels, 0);
 }
+
+// ✅ FALLBACK PARA ERROS (não quebra o site)
+window.addEventListener('error', (e) => {
+    console.warn('Erro capturado (não crítico):', e.error);
+});
