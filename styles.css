@@ -969,3 +969,19 @@ header h1 {
 .testimonial-slide {
     contain: layout style paint;
 }
+/* GARANTIR FONTES - SIMPLES E DIRETO */
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.hero .slide-content h2 {
+    font-family: 'Baskervville', 'Times New Roman', serif;
+}
+
+.hero .slide-content p {
+    font-family: 'Red Hat Display', Arial, sans-serif;
+}
+
+.footer-grid h3 {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+}
