@@ -985,3 +985,28 @@ body {
 .footer-grid h3 {
     font-family: 'Cinzel', 'Times New Roman', serif;
 }
+/* ==================== */
+/* VELOCIDADE CARROSSÉIS DESKTOP */
+/* ==================== */
+
+/* Desktop - Mais lento e suave */
+@media (min-width: 769px) {
+    .services-carousel {
+        transition: transform 0.4s ease-in-out !important;
+    }
+    
+    .testimonials-carousel {
+        transition: transform 0.4s ease-in-out !important;
+    }
+}
+
+/* Mobile - Mantém rápido (estilo Instagram) */
+@media (max-width: 768px) {
+    .services-carousel {
+        transition: transform 0.15s ease-out !important;
+    }
+    
+    .testimonials-carousel {
+        transition: transform 0.15s ease-out !important;
+    }
+}
