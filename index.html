@@ -10,7 +10,8 @@
     /* HERO SECTION - CRÍTICO */
     .hero { 
         position: relative; 
-        height: 80vh; 
+        height: 600px;
+        min-height: 80vh; 
         overflow: hidden; 
     }
     .slide { 
@@ -20,7 +21,8 @@
         opacity: 0; 
         transition: opacity 0.5s ease; 
         background-size: cover; 
-        background-position: center; 
+        background-position: center;
+        aspect-ratio: 16 / 9;
     }
     .slide.active { 
         opacity: 1; 
@@ -71,11 +73,19 @@
         font-weight: bold;
         font-family: 'Montserrat', sans-serif;
     }
+    .services-carousel-container {
+    height: 300px; /* ✅ ALTURA FIXA */
+    overflow: hidden;
+    }
+    .services, .testimonials {
+    min-height: 400px; /* ✅ RESERVA ESPAÇO */
+    }
     
     /* ESTILOS BÁSICOS - CRÍTICO */
     body { 
         margin: 0; 
         font-family: 'Montserrat', sans-serif;
+        font-display: swap;
     }
     header { 
         display: flex; 
@@ -93,7 +103,7 @@
     <!-- Fontes otimizadas (ÚNICAS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:wght@400;700&family=Montserrat:wght@400;500&display=swap&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- CSS COMPLETO ASSÍNCRONO -->
     <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
