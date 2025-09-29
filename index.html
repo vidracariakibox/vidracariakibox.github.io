@@ -37,10 +37,14 @@
         font-size: 2.5rem; 
         margin-bottom: 1rem; 
         font-family: 'Baskervville', serif;
+        line-height: 1.2; /* ✅ EVITA SHIFT */
+        min-height: 3rem; /* ✅ RESERVA ESPAÇO */
     }
     .slide-content p { 
         font-size: 1.2rem; 
         font-family: 'Montserrat', sans-serif;
+        line-height: 1.4; /* ✅ EVITA SHIFT */
+        min-height: 1.5rem; /* ✅ RESERVA ESPAÇO */
     }
     
     /* HEADER - CRÍTICO */
@@ -102,7 +106,7 @@
     <!-- Fontes otimizadas (ÚNICAS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:wght@400;700&family=Montserrat:wght@400;500&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- CSS COMPLETO ASSÍNCRONO -->
     <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
