@@ -541,7 +541,7 @@ header h1 {
 }
 
 .testimonials h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-size: clamp(14px, 3vw, 15px);
     color: #FFFFFF;
     text-transform: uppercase;
@@ -630,18 +630,21 @@ header h1 {
 }
 
 .review-header p {
+    font-family: 'montserrat';
     margin: 0;
     color: #333;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .review-text {
+    font-family: 'Montserrat';
     font-size: 14px;
-    color: #555;
+    color: #2e2e2e;
     margin: 0;
     line-height: 1.5;
     flex-grow: 1;
+    font-weight: 500;
 }
 
 .testimonials .testimonial-prev, 
