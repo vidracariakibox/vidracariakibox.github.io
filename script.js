@@ -645,3 +645,26 @@ if (document.readyState === 'loading') {
 window.addEventListener('error', (e) => {
     console.warn('Erro capturado (não crítico):', e.error);
 });
+// ==================== ELIMINAR REFLOW FORÇADO ====================
+// COLOCAR NO FINAL do arquivo script.js
+
+// Observer para otimizar elementos quando entram na viewport
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.willChange = 'transform';
+        } else {
+            // Remove will-change quando não está visível para liberar memória
+            setTimeout(() => {
+                if (entry.target.style.willChange === 'transform') {
+                    entry.target.style.willChange = 'auto';
+                }
+            }, 300);
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observar elementos que podem causar reflow
+document.querySelectorAll('.service-slide, .testimonial-slide, .slide').forEach(el => {
+    observer.observe(el);
+});
