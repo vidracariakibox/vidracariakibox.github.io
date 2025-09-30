@@ -733,7 +733,7 @@ header h1 {
 }
 
 .footer-grid h3 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cinzel';
     font-size: 20px;
     font-weight: 400;
     color: #FFFFFF;
@@ -741,7 +741,7 @@ header h1 {
 }
 
 .footer-grid p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-size: 14px;
     font-weight: 400;
     color: #FFFFFF;
@@ -784,14 +784,14 @@ header h1 {
 }
 
 .footer-bottom p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-size: 14px;
     color: #FFFFFF;
     margin: 0;
 }
 
 .footer-bottom a {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     color: #FFFFFF;
     text-decoration: none;
     transition: opacity 0.3s ease;
