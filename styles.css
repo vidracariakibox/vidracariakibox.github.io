@@ -9,40 +9,14 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
 }
-/* ==================== */
-/* ELIMINAR REFLOW FORÇADO - COLOCAR NO INÍCIO */
-/* ==================== */
 
-/* Otimização extrema para elementos que se movem */
-.service-slide, 
-.testimonial-slide,
-.slide {
-    contain: layout style paint;
-    transform: translateZ(0);
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-
-/* Prevenir reflow em imagens */
-.service-slide img {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-/* Otimizar transições */
-.services-carousel,
-.testimonials-carousel {
-    transform: translateZ(0);
-    will-change: transform;
-}
 /* ==================== */
-/* FONTES LOCAIS - BAIXADAS */
+/* FONTES LOCAIS */
 /* ==================== */
 
 /* Montserrat */
@@ -159,6 +133,13 @@ body {
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    contain: layout style paint;
+}
+
+/* Prevenir reflow em imagens */
+.service-slide img {
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 /* Otimizações para elementos interativos */
@@ -171,27 +152,8 @@ body {
 }
 
 /* ==================== */
-/* FIM DAS OTIMIZAÇÕES */
+/* HEADER */
 /* ==================== */
-
-/* Garantir que primeiro slide carregue imediatamente */
-.slide:first-child {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true');
-}
-
-.slide:nth-child(2) {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.webp?raw=true');
-}
-
-.slide:nth-child(3) {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-3-compactadas.webp?raw=true');
-}
-
-/* Remover foco visível em elementos interativos */
-button:focus-visible, a:focus-visible {
-    outline: 2px solid #00FF19;
-    outline-offset: 2px;
-}
 
 header {
     background: #141941;
@@ -201,8 +163,8 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center; /* Alinha verticalmente os itens no centro */
-    gap: 10px; /* Adiciona um espaço de 10px entre o h1 e o logo */
+    align-items: center;
+    gap: 10px;
 }
 
 header h1 {
@@ -213,14 +175,16 @@ header h1 {
     text-align: left;
 }
 
-/* Estilo para o logo */
 .header-logo {
     display: block;
-    max-width: 47px; /* A largura do logo é a mesma da altura, já que ele é um ícone */
+    max-width: 47px;
     height: 47px;
 }
 
-/* Hero Slider */
+/* ==================== */
+/* HERO SLIDER */
+/* ==================== */
+
 .hero {
     position: relative;
     height: 70vh;
@@ -240,6 +204,19 @@ header h1 {
     background-repeat: no-repeat;
     background-position: center;
     z-index: 1;
+}
+
+/* Garantir que slides carreguem imediatamente */
+.slide:first-child {
+    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true');
+}
+
+.slide:nth-child(2) {
+    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.webp?raw=true');
+}
+
+.slide:nth-child(3) {
+    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-3-compactadas.webp?raw=true');
 }
 
 .hero .slide.active {
@@ -272,14 +249,14 @@ header h1 {
 }
 
 .hero .slide-content h2 {
-    font-family: 'Baskervville', serif;
+    font-family: 'Baskervville', 'Times New Roman', serif;
     font-size: clamp(20px, 4.5vw, 32px);
     text-transform: uppercase;
     margin: 0 0 10px;
 }
 
 .hero .slide-content p {
-    font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Red Hat Display', Arial, sans-serif;
     font-size: clamp(14px, 2.5vw, 20px);
     margin: 0;
 }
@@ -352,7 +329,10 @@ header h1 {
     background: rgba(255, 255, 255, 0.9);
 }
 
-/* CTA Section - Agora na primeira dobra */
+/* ==================== */
+/* CTA SECTION */
+/* ==================== */
+
 .text-btn {
     background: #404040;
     padding: 30px 20px;
@@ -399,10 +379,18 @@ header h1 {
     margin-right: 8px;
 }
 
-/* Services Section - TAMANHO DAS IMAGENS ATUALIZADO */
+/* Impede que o texto quebre em várias linhas */
+.no-break {
+    white-space: nowrap;
+}
+
+/* ==================== */
+/* SERVICES SECTION */
+/* ==================== */
+
 .services {
     background-color: #F5F5F5;
-    padding: 60px 20px; /*alterado de 60 para 30*/
+    padding: 60px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -456,10 +444,9 @@ header h1 {
 
 .services-carousel {
     display: flex;
-    transition: transform 0.15s ease-out; /* Transição mais rápida */
+    transition: transform 0.15s ease-out;
 }
 
-/* Desktop Styles - 3 imagens por slide - TAMANHO ATUALIZADO */
 .service-slide {
     display: flex;
     flex-direction: row;
@@ -553,7 +540,10 @@ header h1 {
     background: #999999;
 }
 
-/* Testimonials Section - 2 depoimentos em coluna */
+/* ==================== */
+/* TESTIMONIALS SECTION */
+/* ==================== */
+
 .testimonials {
     background: #404040;
     padding: 60px 20px;
@@ -589,7 +579,7 @@ header h1 {
 
 .testimonials-carousel {
     display: flex;
-    transition: transform 0.15s ease-out; /* Transição mais rápida */
+    transition: transform 0.15s ease-out;
 }
 
 .testimonial-slide {
@@ -741,7 +731,10 @@ header h1 {
     margin: 0;
 }
 
-/* Footer */
+/* ==================== */
+/* FOOTER */
+/* ==================== */
+
 .footer-grid {
     background: #141941;
     padding: 50px 20px;
@@ -752,7 +745,7 @@ header h1 {
 }
 
 .footer-grid h3 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cinzel', 'Times New Roman', serif;
     font-size: 20px;
     font-weight: 400;
     color: #FFFFFF;
@@ -824,17 +817,57 @@ header h1 {
     text-align: right;
 }
 
-/* === RESPONSIVE STYLES === */
+/* ==================== */
+/* ACESSIBILIDADE */
+/* ==================== */
+
+/* Remover foco visível em elementos interativos */
+button:focus-visible, a:focus-visible {
+    outline: 2px solid #00FF19;
+    outline-offset: 2px;
+}
+
+/* ==================== */
+/* VELOCIDADE CARROSSÉIS */
+/* ==================== */
+
+/* Desktop - Mais lento e suave */
+@media (min-width: 769px) {
+    .services-carousel {
+        transition: transform 0.4s ease-in-out !important;
+    }
+    
+    .testimonials-carousel {
+        transition: transform 0.4s ease-in-out !important;
+    }
+}
+
+/* Mobile - Mantém rápido (estilo Instagram) */
+@media (max-width: 768px) {
+    .services-carousel {
+        transition: transform 0.15s ease-out !important;
+    }
+    
+    .testimonials-carousel {
+        transition: transform 0.15s ease-out !important;
+    }
+}
+
+/* ==================== */
+/* RESPONSIVE STYLES */
+/* ==================== */
 
 /* Tablet e Mobile - ATÉ 768px */
 @media (max-width: 768px) {
     header h1 {
         font-size: 16px;
     }
+    
     .header-logo {
         max-width: 40px;
         height: 40px;
     }
+    
     .hero {
         height: 60vh;
     }
@@ -854,7 +887,7 @@ header h1 {
         margin-bottom: 20px;
     }
     
-    /* SERVICES MOBILE - TAMANHO ATUALIZADO */
+    /* SERVICES MOBILE */
     .service-slide {
         flex-direction: column;
         align-items: center;
@@ -864,8 +897,8 @@ header h1 {
     .service-slide img {
         width: 80%;
         max-width: 400px;
-        height: auto; /* ← ALTERADO: altura automática do modelo */
-        object-fit: cover; /* ← ALTERADO: cover em vez de contain */
+        height: auto;
+        object-fit: cover;
     }
     
     /* Mostrar setas no mobile para serviços */
@@ -877,7 +910,7 @@ header h1 {
         background: rgba(0, 0, 0, 0.7);
     }
     
-    /* TESTIMONIALS MOBILE - 2 cards em coluna */
+    /* TESTIMONIALS MOBILE */
     .testimonial-slide {
         flex-direction: column;
         align-items: center;
@@ -924,15 +957,15 @@ header h1 {
     .footer-dev {
         text-align: center;
     }
-/* ===== OTIMIZAÇÃO TOUCH PARA MOBILE ===== */
+    
+    /* OTIMIZAÇÃO TOUCH PARA MOBILE */
     .services-carousel,
     .testimonials-carousel {
         touch-action: pan-y pan-x;
         -ms-touch-action: pan-y pan-x;
-        -webkit-overflow-scrolling: touch; /* Suave no iOS */
+        -webkit-overflow-scrolling: touch;
     }
     
-    /* Melhorar performance do scroll */
     .services-carousel-container,
     .testimonials-carousel-container {
         -webkit-overflow-scrolling: touch;
@@ -967,17 +1000,12 @@ header h1 {
     .hero .next {
         right: 10px;
     }
-    /* Impede que o texto quebre em várias linhas */
-    .no-break {
-    white-space: nowrap;
-    }
     
     .text-btn {
         padding: 35px 20px;
         flex-direction: column;
         text-align: center;
         justify-content: flex-start;
-
     }
     
     .text-btn p {
@@ -1091,68 +1119,4 @@ header h1 {
     .testimonials .testimonial-next:hover {
         transform: none;
     }
-}
-
-/* Otimização para reduzir repaints */
-.hero .slide,
-.service-slide,
-.testimonial-slide {
-    contain: layout style paint;
-}
-/* GARANTIR FONTES - SIMPLES E DIRETO */
-body {
-    font-family: 'Montserrat', Arial, sans-serif;
-}
-
-.hero .slide-content h2 {
-    font-family: 'Baskervville', 'Times New Roman', serif;
-}
-
-.hero .slide-content p {
-    font-family: 'Red Hat Display', Arial, sans-serif;
-}
-
-.footer-grid h3 {
-    font-family: 'Cinzel', 'Times New Roman', serif;
-}
-/* ==================== */
-/* VELOCIDADE CARROSSÉIS DESKTOP */
-/* ==================== */
-
-/* Desktop - Mais lento e suave */
-@media (min-width: 769px) {
-    .services-carousel {
-        transition: transform 0.4s ease-in-out !important;
-    }
-    
-    .testimonials-carousel {
-        transition: transform 0.4s ease-in-out !important;
-    }
-}
-
-/* Mobile - Mantém rápido (estilo Instagram) */
-@media (max-width: 768px) {
-    .services-carousel {
-        transition: transform 0.15s ease-out !important;
-    }
-    
-    .testimonials-carousel {
-        transition: transform 0.15s ease-out !important;
-    }
-}
-/* NO FINAL DO SEU CSS - MANTENHA ISTO */
-body {
-    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-.hero .slide-content h2 {
-    font-family: 'Baskervville', 'Times New Roman', Times, serif;
-}
-
-.hero .slide-content p {
-    font-family: 'Red Hat Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-.footer-grid h3 {
-    font-family: 'Cinzel', 'Times New Roman', Times, serif;
 }
