@@ -15,6 +15,33 @@ body {
     overflow-x: hidden;
 }
 /* ==================== */
+/* ELIMINAR REFLOW FORÇADO - COLOCAR NO INÍCIO */
+/* ==================== */
+
+/* Otimização extrema para elementos que se movem */
+.service-slide, 
+.testimonial-slide,
+.slide {
+    contain: layout style paint;
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Prevenir reflow em imagens */
+.service-slide img {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Otimizar transições */
+.services-carousel,
+.testimonials-carousel {
+    transform: translateZ(0);
+    will-change: transform;
+}
+/* ==================== */
 /* FONTES LOCAIS - BAIXADAS */
 /* ==================== */
 
