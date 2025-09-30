@@ -1086,19 +1086,21 @@ header h1 {
 }
 /* GARANTIR FONTES - SIMPLES E DIRETO */
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
 }
 
 .hero .slide-content h2 {
-    font-family: 'Baskervville', serif;
+    font-family: 'Baskervville';
+    font-size: 22px;
 }
 
 .hero .slide-content p {
-    font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Red Hat Display';
+    font-size: 16px;
 }
 
 .footer-grid h3 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cinzel';
 }
 /* ==================== */
 /* VELOCIDADE CARROSSÉIS DESKTOP */
