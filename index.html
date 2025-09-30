@@ -4,67 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vidraçaria Kibox - Especialista em Vidro Temperado | Ribeirão Preto</title>
-    
-    <!-- PRÉ-CARREGAMENTOS ESTRATÉGICOS -->
     <link rel="preload" href="script.js" as="script">
+    <!-- NO HEAD DO HTML - APÓS O TÍTULO -->
     <link rel="preload" href="/fonts/montserrat-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/montserrat-medium.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/baskervville-regular.woff2" as="font" type="font/woff2" crossorigin>
-    
     <!-- CSS CRÍTICO INLINE - CONTEÚDO ACIMA DA DOBRA -->
     <style>
-    /* === FONTES CRÍTICAS - ZERO FOUT === */
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url('/fonts/montserrat-regular.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 500;
-      font-display: swap;
-      src: url('/fonts/montserrat-medium.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'Baskervville';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url('/fonts/baskervville-regular.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'Baskervville';
-      font-style: italic;
-      font-weight: 400;
-      font-display: swap;
-      src: url('/fonts/baskervville-italic.woff2') format('woff2');
-    }
-
-    /* === ELIMINAR REFLOW FORÇADO === */
-    .service-slide, .testimonial-slide, .slide {
-        contain: layout style paint;
-        transform: translateZ(0);
-        will-change: transform;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-    }
-    .service-slide img {
-        transform: translateZ(0);
-        backface-visibility: hidden;
-    }
-    .services-carousel, .testimonials-carousel {
-        transform: translateZ(0);
-        will-change: transform;
-    }
-
-    /* === HERO SECTION - CRÍTICO === */
+    /* HERO SECTION - CRÍTICO */
     .hero { 
         position: relative; 
         height: 80vh;
         overflow: hidden;
+        
     }
     .slide { 
         position: absolute; 
@@ -89,17 +40,17 @@
         font-size: 2.5rem; 
         margin-bottom: 1rem; 
         font-family: 'Baskervville', serif;
-        line-height: 1.2;
-        min-height: 3rem;
+        line-height: 1.2; /* ✅ EVITA SHIFT */
+        min-height: 3rem; /* ✅ RESERVA ESPAÇO */
     }
     .slide-content p { 
         font-size: 1.2rem; 
         font-family: 'Montserrat', sans-serif;
-        line-height: 1.4;
-        min-height: 1.5rem;
+        line-height: 1.4; /* ✅ EVITA SHIFT */
+        min-height: 1.5rem; /* ✅ RESERVA ESPAÇO */
     }
     
-    /* === HEADER - CRÍTICO === */
+    /* HEADER - CRÍTICO */
     .header-logo { 
         max-width: 100px; 
         height: auto; 
@@ -111,7 +62,7 @@
         font-display: swap;
     }
     
-    /* === CTA SECTION - CRÍTICO === */
+    /* CTA SECTION - CRÍTICO */
     .text-btn { 
         padding: 2rem; 
         text-align: center; 
@@ -129,16 +80,14 @@
         font-weight: bold;
         font-family: 'Montserrat', sans-serif;
     }
-    
-    /* === RESERVA DE ESPAÇO - EVITA CLS === */
     .services-carousel-container {
-        overflow: hidden;
+    overflow: hidden;
     }
     .services, .testimonials {
-        min-height: 400px;
+    min-height: 400px; /* ✅ RESERVA ESPAÇO */
     }
     
-    /* === ESTILOS BÁSICOS - CRÍTICO === */
+    /* ESTILOS BÁSICOS - CRÍTICO */
     body { 
         margin: 0; 
         font-family: 'Montserrat', sans-serif;
@@ -152,20 +101,23 @@
     }
     </style>
 
-    <!-- OTIMIZAÇÃO SLIDESHOW - PRÉ-CARREGAR IMAGENS -->
+    <!-- Otimização Slideshow -->
     <link rel="preload" as="image" href="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true">
     <link rel="preload" as="image" href="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.webp?raw=true">  
     <link rel="preload" as="image" href="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-3-compactadas.webp?raw=true">
 
+    <!-- FONTS OTIMIZADAS -->
+
     <!-- CSS COMPLETO ASSÍNCRONO -->
     <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
     
-    <!-- SEO E META TAGS -->
+    <!-- META DESCRIPTION ORIGINAL (PERFEITA) -->
     <meta name="description" content="Vidraçaria Kibox: 22 anos de experiência em vidro temperado. Divisória, Box, Espelho, Guarda Corpo. Orçamento rápido em Ribeirão Preto-SP.">
-    <meta name="keywords" content="vidraçaria, vidro temperado, box, sacada, espelho, guarda corpo, ribeirão preto, orçamento, Divisória, Manutenções, Forro de PVC">
+    
+    <meta name="keywords" content="vidraçaria, vidro temperado, box, sacada, espelho, guarda corpo, ribeirão preto, orçamento, Divisória, Mnautenções, Forro de PVC">
     <meta name="author" content="Vidraçaria Kibox">
 
-    <!-- OPEN GRAPH -->
+    <!-- SEO INVISÍVEL OTIMIZADO -->
     <meta property="og:title" content="Vidraçaria Kibox - 22 anos em Vidro Temperado | Ribeirão Preto">
     <meta property="og:description" content="Vidraçaria Kibox: 22 anos de experiência em vidro temperado. Box, Espelho, Guarda Corpo, Divisória, Forro de PVC, Manutenções">
     <meta property="og:type" content="website">
@@ -173,7 +125,7 @@
     
     <link rel="icon" type="image/png" href="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Favicon-40x40.png?raw=true">
 
-    <!-- SCHEMA.ORG PARA SEO -->
+    <!-- Schema.org INVISÍVEL -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -196,11 +148,12 @@
     }
     </script>
 
-    <!-- GOOGLE TAG MANAGER OTIMIZADO -->
+    <!-- Google Tag Manager OTIMIZADO -->
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
 
+    // Carrega GTM DEPOIS que a página estiver pronta
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', loadGTM);
     } else {
@@ -216,20 +169,18 @@
     </script>
 </head>
 <body>
-    <!-- GOOGLE TAG MANAGER (NOSCRIPT) -->
+    <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHTX3875" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     
-    <!-- HEADER -->
     <header role="banner">
         <img src="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Logo-da-empresa-somente-imagem.png?raw=true" alt="Logo da Vidraçaria Kibox" class="header-logo">
         <h1>Vidraçaria Kibox Excelência em vidro</h1>
     </header>
     
-    <!-- CONTEÚDO PRINCIPAL -->
     <main>
-        <!-- HERO SECTION -->
+        <!-- Hero Section -->
         <section class="hero" aria-label="Galeria de imagens da empresa">
             <div class="slide active" style="background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true');" role="img" aria-label="22 anos de experiência em vidraçaria">
                 <div class="slide-content">
@@ -260,7 +211,7 @@
             </div>
         </section>
         
-        <!-- CTA SECTION -->
+        <!-- CTA Section -->
         <section class="text-btn" aria-labelledby="cta-heading">
             <p id="cta-heading"><strong>Atuamos exclusivamente no centro de <span class="no-break">Ribeirão Preto</span></strong><br><br> Para suprir o grande número de prédios e lojas comerciais, sabemos da necessidade e da rapidez tanto no orçamento quanto na execução do serviço.</p>
             <a href="https://api.whatsapp.com/send/?phone=5516996197527&text&type=phone_number&app_absent=0" aria-label="Solicitar orçamento via WhatsApp">
@@ -269,13 +220,13 @@
             </a>
         </section>
         
-        <!-- SERVICES SECTION -->
+        <!-- Services Section -->
         <section class="services" aria-labelledby="services-heading">
             <h2 id="services-heading">Nossos serviços</h2>
             <p>Box | Espelho | Vidro Temperado | Forro de PVC | Divisória | Manutenções</p>
             <div class="services-carousel-container">
                 <div class="services-carousel" id="servicesCarousel" aria-live="polite">
-                    <!-- Conteúdo dinâmico via JavaScript -->
+                    <!-- O conteúdo será criado dinamicamente pelo JavaScript -->
                 </div>
                 <div class="controls">
                     <button class="arrow prev service-prev" aria-label="Imagens anteriores"><span aria-hidden="true">&#10094;</span></button>
@@ -285,7 +236,7 @@
             <div class="dots service-dots" id="serviceDots" role="tablist"></div>
         </section>
         
-        <!-- TESTIMONIALS SECTION -->
+        <!-- Testimonials Section -->
         <section class="testimonials" aria-labelledby="testimonials-heading">
             <h2 id="testimonials-heading">
                 <img src="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/icons8-meu-neg%C3%B3cio-144.png?raw=true" alt="Google Meu Negócio" class="google-title-logo">
@@ -293,7 +244,7 @@
             </h2>
             <div class="testimonials-carousel-container">
                 <div class="testimonials-carousel" aria-live="polite">
-                    <!-- Depoimentos dinâmicos via JavaScript -->
+                    <!-- Depoimentos serão carregados dinamicamente pelo JavaScript -->
                 </div>
             </div>
             <button class="testimonial-prev" aria-label="Depoimentos anteriores"><span aria-hidden="true">&#10094;</span></button>
@@ -303,7 +254,7 @@
         </section>
     </main>
     
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer role="contentinfo">
         <div class="divider"></div>
         <div class="footer-grid">
@@ -332,22 +283,18 @@
         </div>
     </footer>
     
-    <!-- SCRIPTS -->
     <script src="script.js" defer></script>
 
-    <!-- SERVICE WORKER REGISTRATION -->
-    <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('sw.js')
-          .then(function(registration) {
-            console.log('✅ Service Worker registrado:', registration.scope);
-          })
-          .catch(function(error) {
-            console.log('❌ Falha no Service Worker:', error);
-          });
-      });
-    }
-    </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(function(registration) {
+      console.log('✅ Service Worker registrado:', registration.scope);
+    })
+    .catch(function(error) {
+      console.log('❌ Falha no Service Worker:', error);
+    });
+}
+</script>
 </body>
 </html>
