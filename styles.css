@@ -407,7 +407,7 @@ header h1 {
 }
 
 .services h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-size: clamp(14px, 3vw, 15px);
     color: #000000;
     text-transform: uppercase;
@@ -416,7 +416,7 @@ header h1 {
 }
 
 .services p {
-    font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Red Hat Display';
     font-size: clamp(16px, 3vw, 18px);
     color: #000000;
     margin: 0 0 40px;
