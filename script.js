@@ -142,7 +142,7 @@ const testimonialsData = [
 const slides = document.getElementsByClassName("slide");
 const dots = document.getElementsByClassName("dot");
 
-let slideIndex = 1;
+let slideIndex = 0;
 let autoSlideTimer = null;
 
 // Função para limpar timer
@@ -153,24 +153,27 @@ function clearAutoSlide() {
     }
 }
 
-// ✅ VERSÃO CORRIGIDA - FUNCIONA 100%
+// ✅ VERSÃO OTIMIZADA - SEM REFLOW FORÇADO
 function showSlides() {
     clearAutoSlide();
     
     if (slides.length === 0) return;
     
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-        if (dots[i]) dots[i].classList.remove("active");
-    }
-    
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-    
-    slides[slideIndex - 1].classList.add("active");
-    if (dots[slideIndex - 1]) {
-        dots[slideIndex - 1].classList.add("active");
-    }
+    // 🎯 AGRUPAR TODAS AS ALTERAÇÕES NO DOM
+    requestAnimationFrame(() => {
+        // Remove todas as classes de uma vez (performance)
+        const activeElements = document.querySelectorAll('.slide.active, .dot.active');
+        activeElements.forEach(el => el.classList.remove('active'));
+        
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+        
+        // Adiciona classes novas de uma vez
+        slides[slideIndex - 1].classList.add('active');
+        if (dots[slideIndex - 1]) {
+            dots[slideIndex - 1].classList.add('active');
+        }
+    });
     
     autoSlideTimer = setTimeout(showSlides, 8000);
 }
