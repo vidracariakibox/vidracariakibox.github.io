@@ -641,37 +641,30 @@ if (document.readyState === 'loading') {
     setTimeout(initCarousels, 0);
 }
 
-// ✅ OBSERVER PARA PERFORMANCE (APENAS ESTE NO FINAL)
-function initPerformanceObserver() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.willChange = 'transform';
-            } else {
-                setTimeout(() => {
-                    if (entry.target.style.willChange === 'transform') {
-                        entry.target.style.willChange = 'auto';
-                    }
-                }, 300);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    setTimeout(() => {
-        document.querySelectorAll('.service-slide, .testimonial-slide, .slide').forEach(el => {
-            if (el) observer.observe(el);
-        });
-    }, 1000);
-}
-
-// Inicializar observer após tudo carregado
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPerformanceObserver);
-} else {
-    setTimeout(initPerformanceObserver, 1000);
-}
-
 // ✅ FALLBACK PARA ERROS (não quebra o site)
 window.addEventListener('error', (e) => {
     console.warn('Erro capturado (não crítico):', e.error);
+});
+// ==================== ELIMINAR REFLOW FORÇADO ====================
+// COLOCAR NO FINAL do arquivo script.js
+
+// Observer para otimizar elementos quando entram na viewport
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.willChange = 'transform';
+        } else {
+            // Remove will-change quando não está visível para liberar memória
+            setTimeout(() => {
+                if (entry.target.style.willChange === 'transform') {
+                    entry.target.style.willChange = 'auto';
+                }
+            }, 300);
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observar elementos que podem causar reflow
+document.querySelectorAll('.service-slide, .testimonial-slide, .slide').forEach(el => {
+    observer.observe(el);
 });
