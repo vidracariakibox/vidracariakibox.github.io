@@ -9,18 +9,18 @@ const urlsToCache = [
   '/robots.txt',
   '/sitemap.xml',
   // ✅ ADICIONE AS IMAGENS AQUI:
-  'icons8-google-logo-48.png?raw=true',
-  '2.jpg?raw=true',
-  '3.jpg?raw=true',
-  '4.jpg?raw=true',
-  '5.jpg?raw=true',
-  '6.jpg?raw=true',
-  '7.jpg?raw=true', 
-  '8.jpg?raw=true',
-  '9.jpg?raw=true',
-  '10.jpg?raw=true',
-  '11.jpg?raw=true',
-  '12.jpg?raw=true'
+  'icons8-google-logo-48.webp',
+  '2.webp',
+  '3.webp',
+  '4.webp',
+  '5.webp',
+  '6.webp',
+  '7.webp', 
+  '8.webp',
+  '9.webp',
+  '10.webp',
+  '11.webp',
+  '12.webp'
 ];
 
 // INSTALAÇÃO - Cache dos CRÍTICOS + IMAGENS

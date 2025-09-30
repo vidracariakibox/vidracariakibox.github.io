@@ -1,17 +1,17 @@
 // DADOS DAS IMAGENS ORIGINAIS
 const serviceImages = [
-    '/Imagens/1.jpg',
-    '/Imagens/2.jpg',
-    '/Imagens/3.jpg',
-    '/Imagens/4.jpg',
-    '/Imagens/5.jpg',
-    '/Imagens/6.jpg',
-    '/Imagens/7.jpg',
-    '/Imagens/8.jpg',
-    '/Imagens/9.jpg',
-    '/Imagens/10.jpg',
-    '/Imagens/11.jpg',
-    '/Imagens/12.jpg'
+    '/Imagens/1.webp',
+    '/Imagens/2.webp',
+    '/Imagens/3.webp',
+    '/Imagens/4.webp',
+    '/Imagens/5.webp',
+    '/Imagens/6.webp',
+    '/Imagens/7.webp',
+    '/Imagens/8.webp',
+    '/Imagens/9.webp',
+    '/Imagens/10.webp',
+    '/Imagens/11.webp',
+    '/Imagens/12.webp'
 ];
 
 // DADOS DOS 20 DEPOIMENTOS
@@ -475,7 +475,7 @@ class TestimonialsCarousel {
                 const card = document.createElement('div');
                 card.className = 'review-card';
                 card.innerHTML = `
-                    <img src="/Imagens/icons8-google-logo-48.png" 
+                    <img src="/Imagens/icons8-google-logo-48.webp" 
                          alt="Google" 
                          class="google-review-logo"
                          onerror="this.style.display='none'">
