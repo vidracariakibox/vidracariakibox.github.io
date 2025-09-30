@@ -345,6 +345,11 @@ header h1 {
     flex: 1;
     min-width: 300px;
 }
+/* Espaçamento para desktop */
+.text-btn p .espacamento-texto {
+    letter-spacing: 1.2px;
+}
+
 
 .text-btn a {
     font-family: 'Montserrat';
@@ -959,6 +964,10 @@ header h1 {
         margin-top: -10px;
         margin-bottom: 5px;
     }
+    .text-btn p .espacamento-texto {
+        letter-spacing: 1.2px;
+    }
+
     
     .text-btn a {
         padding: 12px 30px;
