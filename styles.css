@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -180,7 +180,7 @@ header {
 
 header h1 {
     color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-size: 18px;
     margin: 0;
     text-align: left;
@@ -245,14 +245,14 @@ header h1 {
 }
 
 .hero .slide-content h2 {
-    font-family: 'Baskervville', serif;
+    font-family: 'Baskervville';
     font-size: clamp(20px, 4.5vw, 32px);
     text-transform: uppercase;
     margin: 0 0 10px;
 }
 
 .hero .slide-content p {
-    font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Red Hat Display';
     font-size: clamp(14px, 2.5vw, 20px);
     margin: 0;
 }
@@ -337,7 +337,7 @@ header h1 {
 }
 
 .text-btn p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-size: clamp(14px, 2.5vw, 15px);
     color: #FFFFFF;
     margin: 0;
@@ -347,7 +347,7 @@ header h1 {
 }
 
 .text-btn a {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     background: #00FF19;
     color: #000000;
     padding: 15px 40px;
