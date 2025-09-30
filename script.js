@@ -1,17 +1,17 @@
 // DADOS DAS IMAGENS ORIGINAIS
 const serviceImages = [
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/1.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/2.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/3.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/4.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/5.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/6.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/7.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/8.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/9.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/10.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/11.jpg?raw=true',
-    'https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/12.jpg?raw=true'
+    '/Imagens/1.jpg',
+    '/Imagens/2.jpg',
+    '/Imagens/3.jpg',
+    '/Imagens/4.jpg',
+    '/Imagens/5.jpg',
+    '/Imagens/6.jpg',
+    '/Imagens/7.jpg',
+    '/Imagens/8.jpg',
+    '/Imagens/9.jpg',
+    '/Imagens/10.jpg',
+    '/Imagens/11.jpg',
+    '/Imagens/12.jpg'
 ];
 
 // DADOS DOS 20 DEPOIMENTOS
@@ -475,7 +475,7 @@ class TestimonialsCarousel {
                 const card = document.createElement('div');
                 card.className = 'review-card';
                 card.innerHTML = `
-                    <img src="https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/icons8-google-logo-48.png?raw=true" 
+                    <img src="/Imagens/icons8-google-logo-48.png" 
                          alt="Google" 
                          class="google-review-logo"
                          onerror="this.style.display='none'">
