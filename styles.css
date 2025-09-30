@@ -149,15 +149,15 @@ body {
 
 /* Garantir que primeiro slide carregue imediatamente */
 .slide:first-child {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-1-compactadas.webp?raw=true');
+    background-image: url('/Imagens/Slide-1-compactadas.webp'); /* Imagem otimizada */
 }
 
 .slide:nth-child(2) {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-2-compactadas.webp?raw=true');
+    background-image: url('/Imagens/Slide-2-compactadas.webp'); /* Imagem otimizada */
 }
 
 .slide:nth-child(3) {
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Slide-3-compactadas.webp?raw=true');
+    background-image: url('/Imagens/Slide-3-compactadas.webp'); /* Imagem otimizada */
 }
 
 /* Remover foco visível em elementos interativos */
@@ -383,7 +383,7 @@ header h1 {
 
 .services::after {
     content: '';
-    background-image: url('https://github.com/Betioli/Vidracaria-Kibox/blob/main/Imagens/Forma-abstrata.jpg?raw=true');
+    background-image: url('/Imagens/Forma-abstrata.jpg'); /* Imagem otimizada */
     background-size: 80% auto;
     background-repeat: no-repeat;
     position: absolute;
