@@ -233,7 +233,7 @@ header h1 {
     max-width: 90%;
 }
 .slide {
-    position: relative; /* Garante container para a imagem */
+    position: relative; /* Garante container para a imagem LCP */
 }
 .slide-img {
     position: absolute;
@@ -247,7 +247,7 @@ header h1 {
 
 .slide-content {
     position: relative;
-    z-index: 2; /* Mantém o conteúdo acima da imagem */
+    z-index: 2; /* Mantém o conteúdo acima da imagem LCP*/
 }
 
 @keyframes slideUp {
