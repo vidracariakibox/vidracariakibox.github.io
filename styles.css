@@ -388,7 +388,7 @@ header h1 {
 
 .services::after {
     content: '';
-    background-image: url('/Imagens/Forma-abstrata.jpg'); /* Imagem otimizada */
+    background-image: url('/Imagens/Forma-abstrata.webp'); /* Imagem otimizada */
     background-size: 80% auto;
     background-repeat: no-repeat;
     position: absolute;
