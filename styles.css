@@ -249,6 +249,11 @@ header h1 {
     position: relative;
     z-index: 2; /* Mantém o conteúdo acima da imagem LCP*/
 }
+.slide-content h2,
+.slide-content p {
+    min-height: 60px; /* Layout shift*/
+}
+
 
 @keyframes slideUp {
     from { 
