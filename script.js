@@ -1,17 +1,18 @@
 // DADOS DAS IMAGENS ORIGINAIS
 const serviceImages = [
-    '/Imagens/1.webp',
-    '/Imagens/2.webp',
-    '/Imagens/3.webp',
-    '/Imagens/4.webp',
-    '/Imagens/5.webp',
-    '/Imagens/6.webp',
-    '/Imagens/7.webp',
-    '/Imagens/8.webp',
-    '/Imagens/9.webp',
-    '/Imagens/10.webp',
-    '/Imagens/11.webp',
-    '/Imagens/12.webp'
+    { src: '/Imagens/1-800.webp', srcset: '/Imagens/1-400.webp 400w, /Imagens/1-800.webp 800w' },
+    { src: '/Imagens/2-800.webp', srcset: '/Imagens/2-400.webp 400w, /Imagens/2-800.webp 800w' },
+    { src: '/Imagens/3-800.webp', srcset: '/Imagens/3-400.webp 400w, /Imagens/3-800.webp 800w' },
+    { src: '/Imagens/4-800.webp', srcset: '/Imagens/4-400.webp 400w, /Imagens/4-800.webp 800w' },
+    { src: '/Imagens/5-800.webp', srcset: '/Imagens/5-400.webp 400w, /Imagens/5-800.webp 800w' },
+    { src: '/Imagens/6-800.webp', srcset: '/Imagens/6-400.webp 400w, /Imagens/6-800.webp 800w' },
+    { src: '/Imagens/7-800.webp', srcset: '/Imagens/7-400.webp 400w, /Imagens/7-800.webp 800w' },
+    { src: '/Imagens/8-800.webp', srcset: '/Imagens/8-400.webp 400w, /Imagens/8-800.webp 800w' },
+    { src: '/Imagens/9-800.webp', srcset: '/Imagens/9-400.webp 400w, /Imagens/9-800.webp 800w' },
+    { src: '/Imagens/10-800.webp', srcset: '/Imagens/10-400.webp 400w, /Imagens/10-800.webp 800w' },
+    { src: '/Imagens/11-800.webp', srcset: '/Imagens/11-400.webp 400w, /Imagens/11-800.webp 800w' },
+    { src: '/Imagens/12-800.webp', srcset: '/Imagens/12-400.webp 400w, /Imagens/12-800.webp 800w' },
+    
 ];
 
 // DADOS DOS 20 DEPOIMENTOS
