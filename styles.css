@@ -232,6 +232,23 @@ header h1 {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     max-width: 90%;
 }
+.slide {
+    position: relative; /* Garante container para a imagem */
+}
+.slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2; /* Mantém o conteúdo acima da imagem */
+}
 
 @keyframes slideUp {
     from { 
