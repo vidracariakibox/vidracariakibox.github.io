@@ -1,17 +1,17 @@
 // DADOS DAS IMAGENS ORIGINAIS
 const serviceImages = [
-    { src: '/Imagens/1.webp', srcset: '/Imagens/1.webp 400w, /Imagens/1.webp 800w' },
-    { src: '/Imagens/2.webp', srcset: '/Imagens/2.webp 400w, /Imagens/2.webp 800w' },
-    { src: '/Imagens/3.webp', srcset: '/Imagens/3.webp 400w, /Imagens/3.webp 800w' },
-    { src: '/Imagens/4.webp', srcset: '/Imagens/4.webp 400w, /Imagens/4.webp 800w' },
-    { src: '/Imagens/5.webp', srcset: '/Imagens/5.webp 400w, /Imagens/5.webp 800w' },
-    { src: '/Imagens/6.webp', srcset: '/Imagens/6.webp 400w, /Imagens/6.webp 800w' },
-    { src: '/Imagens/7.webp', srcset: '/Imagens/7.webp 400w, /Imagens/7.webp 800w' },
-    { src: '/Imagens/8.webp', srcset: '/Imagens/8.webp 400w, /Imagens/8.webp 800w' },
-    { src: '/Imagens/9.webp', srcset: '/Imagens/9.webp 400w, /Imagens/9.webp 800w' },
-    { src: '/Imagens/10.webp', srcset: '/Imagens/10.webp 400w, /Imagens/10.webp 800w' },
-    { src: '/Imagens/11.webp', srcset: '/Imagens/11.webp 400w, /Imagens/11.webp 800w' },
-    { src: '/Imagens/12.webp', srcset: '/Imagens/12.webp 400w, /Imagens/12.webp 800w' },
+    { src: '/Imagens/1.webp'},
+    { src: '/Imagens/2.webp'},
+    { src: '/Imagens/3.webp'},
+    { src: '/Imagens/4.webp'},
+    { src: '/Imagens/5.webp'},
+    { src: '/Imagens/6.webp'},
+    { src: '/Imagens/7.webp'},
+    { src: '/Imagens/8.webp'},
+    { src: '/Imagens/9.webp'},
+    { src: '/Imagens/10.webp'},
+    { src: '/Imagens/11.webp'},
+    { src: '/Imagens/12.webp'},
     ];
 
 // DADOS DOS 20 DEPOIMENTOS
@@ -270,13 +270,12 @@ class ServicesCarousel {
             
             imagesToShow.forEach((src, index) => {
                 const img = document.createElement('img');
-                img.src = serviceImages[i].src;
-                img.srcset = serviceImages[i].srcset;
-                img.sizes = "(max-width: 480px) 400px,80px";
-                /*img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;*/
-                /*img.loading = i === 0 ? 'eager' : 'lazy';*/
-                img.width = 308;
-                img.height = 308;
+                img.src = serviceImages[startIndex + index].src;
+                img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;
+                img.loading = index === 0 ? 'eager' : 'lazy';
+                img.decoding = 'async';
+                img.width = 800;
+                img.height = 600;
                 
                 img.onerror = () => {
                     console.warn(`Imagem não carregada: ${src}`);
