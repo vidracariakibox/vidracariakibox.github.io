@@ -258,40 +258,38 @@ class ServicesCarousel {
     }
     
     buildCarousel() {
-        this.carousel.innerHTML = '';
+    this.carousel.innerHTML = '';
+    
+    for (let i = 0; i < this.totalSlides; i++) {
+        const slide = document.createElement('div');
+        slide.className = 'service-slide';
         
-        for (let i = 0; i < this.totalSlides; i++) {
-            const slide = document.createElement('div');
-            slide.className = 'service-slide';
+        const startIndex = i * this.slidesPerView;
+        const endIndex = startIndex + this.slidesPerView;
+        const imagesToShow = serviceImages.slice(startIndex, endIndex);
+        
+        imagesToShow.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = serviceImages[startIndex + index].src;
+            img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;
+            img.loading = index === 0 ? 'eager' : 'lazy';
+            img.decoding = 'async';
+            img.width = 800;
+            img.height = 600;
             
-            const startIndex = i * this.slidesPerView;
-            const endIndex = startIndex + this.slidesPerView;
-            const imagesToShow = serviceImages.slice(startIndex, endIndex);
+            // ✅ SOLUÇÃO 1: Use uma classe CSS ao invés de inline styles
+            img.onerror = () => {
+                console.warn(`Imagem não carregada: ${serviceImages[startIndex + index].src}`);
+                img.classList.add('img-error');
+                img.alt = 'Imagem não disponível';
+            };
             
-            imagesToShow.forEach((src, index) => {
-                const img = document.createElement('img');
-                img.src = serviceImages[startIndex + index].src;
-                img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;
-                img.loading = index === 0 ? 'eager' : 'lazy';
-                img.decoding = 'async';
-                img.width = 800;
-                img.height = 600;
-                
-                img.onerror = () => {
-                    console.warn(`Imagem não carregada: ${src}`);
-                    img.style.backgroundColor = '#f0f0f0';
-                    img.style.display = 'flex';
-                    img.style.alignItems = 'center';
-                    img.style.justifyContent = 'center';
-                    img.innerHTML = '<span style="color: #999;">Imagem não disponível</span>';
-                };
-                
-                slide.appendChild(img);
-            });
-            
-            this.carousel.appendChild(slide);
-        }
+            slide.appendChild(img);
+        });
+        
+        this.carousel.appendChild(slide);
     }
+}
     
     createDots() {
         this.dotsContainer.innerHTML = '';
