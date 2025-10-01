@@ -147,18 +147,6 @@ body {
 /* FIM DAS OTIMIZAÇÕES */
 /* ==================== */
 
-/* Garantir que primeiro slide carregue imediatamente */
-.slide:first-child {
-    background-image: url('/Imagens/Slide-1-compactadas.webp'); /* Imagem otimizada */
-}
-
-.slide:nth-child(2) {
-    background-image: url('/Imagens/Slide-2-compactadas.webp'); /* Imagem otimizada */
-}
-
-.slide:nth-child(3) {
-    background-image: url('/Imagens/Slide-3-compactadas.webp'); /* Imagem otimizada */
-}
 
 /* Remover foco visível em elementos interativos */
 button:focus-visible, a:focus-visible {
@@ -209,9 +197,6 @@ header h1 {
     left: 0;
     opacity: 0;
     transition: opacity 1.2s ease;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     z-index: 1;
 }
 
@@ -232,9 +217,15 @@ header h1 {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     max-width: 90%;
 }
-.slide {
-    position: relative; /* Garante container para a imagem LCP */
+
+.slide-content h2,
+.slide-content p {
+    min-height: 60px; /* Layout shift*/
 }
+.slide {
+    position: relative; /* Slide 1 começa aqui*/
+}
+
 .slide-img {
     position: absolute;
     top: 0;
@@ -247,13 +238,8 @@ header h1 {
 
 .slide-content {
     position: relative;
-    z-index: 2; /* Mantém o conteúdo acima da imagem LCP*/
-}
-.slide-content h2,
-.slide-content p {
-    min-height: 60px; /* Layout shift*/
-}
-
+    z-index: 2; /* Fica acima da imagem */
+} /* Slide 1 termina aqui*/
 
 @keyframes slideUp {
     from { 
