@@ -1,17 +1,17 @@
 // DADOS DAS IMAGENS ORIGINAIS
 const serviceImages = [
-    { src: '/Imagens/1-800.webp', srcset: '/Imagens/1-400.webp 400w, /Imagens/1-800.webp 800w' },
-    { src: '/Imagens/2-800.webp', srcset: '/Imagens/2-400.webp 400w, /Imagens/2-800.webp 800w' },
-    { src: '/Imagens/3-800.webp', srcset: '/Imagens/3-400.webp 400w, /Imagens/3-800.webp 800w' },
-    { src: '/Imagens/4-800.webp', srcset: '/Imagens/4-400.webp 400w, /Imagens/4-800.webp 800w' },
-    { src: '/Imagens/5-800.webp', srcset: '/Imagens/5-400.webp 400w, /Imagens/5-800.webp 800w' },
-    { src: '/Imagens/6-800.webp', srcset: '/Imagens/6-400.webp 400w, /Imagens/6-800.webp 800w' },
-    { src: '/Imagens/7-800.webp', srcset: '/Imagens/7-400.webp 400w, /Imagens/7-800.webp 800w' },
-    { src: '/Imagens/8-800.webp', srcset: '/Imagens/8-400.webp 400w, /Imagens/8-800.webp 800w' },
-    { src: '/Imagens/9-800.webp', srcset: '/Imagens/9-400.webp 400w, /Imagens/9-800.webp 800w' },
-    { src: '/Imagens/10-800.webp', srcset: '/Imagens/10-400.webp 400w, /Imagens/10-800.webp 800w' },
-    { src: '/Imagens/11-800.webp', srcset: '/Imagens/11-400.webp 400w, /Imagens/11-800.webp 800w' },
-    { src: '/Imagens/12-800.webp', srcset: '/Imagens/12-400.webp 400w, /Imagens/12-800.webp 800w' },
+    { src: '/Imagens/1.webp', srcset: '/Imagens/1.webp 400w, /Imagens/1.webp 800w' },
+    { src: '/Imagens/2.webp', srcset: '/Imagens/2.webp 400w, /Imagens/2.webp 800w' },
+    { src: '/Imagens/3.webp', srcset: '/Imagens/3.webp 400w, /Imagens/3.webp 800w' },
+    { src: '/Imagens/4.webp', srcset: '/Imagens/4.webp 400w, /Imagens/4.webp 800w' },
+    { src: '/Imagens/5.webp', srcset: '/Imagens/5.webp 400w, /Imagens/5.webp 800w' },
+    { src: '/Imagens/6.webp', srcset: '/Imagens/6.webp 400w, /Imagens/6.webp 800w' },
+    { src: '/Imagens/7.webp', srcset: '/Imagens/7.webp 400w, /Imagens/7.webp 800w' },
+    { src: '/Imagens/8.webp', srcset: '/Imagens/8.webp 400w, /Imagens/8.webp 800w' },
+    { src: '/Imagens/9.webp', srcset: '/Imagens/9.webp 400w, /Imagens/9.webp 800w' },
+    { src: '/Imagens/10.webp', srcset: '/Imagens/10.webp 400w, /Imagens/10.webp 800w' },
+    { src: '/Imagens/11.webp', srcset: '/Imagens/11.webp 400w, /Imagens/11.webp 800w' },
+    { src: '/Imagens/12.webp', srcset: '/Imagens/12.webp 400w, /Imagens/12.webp 800w' },
     ];
 
 // DADOS DOS 20 DEPOIMENTOS
@@ -272,7 +272,7 @@ class ServicesCarousel {
                 const img = document.createElement('img');
                 img.src = serviceImages[i].src;
                 img.srcset = serviceImages[i].srcset;
-                img.sizes = "(max-width: 480px) 400vw,80px";
+                img.sizes = "(max-width: 480px) 400px,80px";
                 /*img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;*/
                 /*img.loading = i === 0 ? 'eager' : 'lazy';*/
                 img.width = 308;
