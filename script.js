@@ -139,19 +139,18 @@ const testimonialsData = [
 ];
 
 // ==================== HERO CAROUSEL OTIMIZADO ====================
-const slides = document.getElementsByClassName("slide");
-const dots = document.getElementsByClassName("dot");
+const slides = document.querySelectorAll(".hero .slide"); /*1ª parte*/
+const dots = document.querySelectorAll(".hero .dot");
 
 let slideIndex = 0;
 let autoSlideTimer = null;
 
-// Função para limpar timer
 function clearAutoSlide() {
     if (autoSlideTimer) {
         clearTimeout(autoSlideTimer);
         autoSlideTimer = null;
     }
-}
+} /*final da 1ª parte*/
 
 // ✅ VERSÃO OTIMIZADA - SEM REFLOW FORÇADO
 function showSlides() {
@@ -159,65 +158,55 @@ function showSlides() {
     
     if (slides.length === 0) return;
     
-    // 🎯 AGRUPAR TODAS AS ALTERAÇÕES NO DOM
-    requestAnimationFrame(() => {
-        // Remove todas as classes de uma vez (performance)
-        const activeElements = document.querySelectorAll('.slide.active, .dot.active');
-        activeElements.forEach(el => el.classList.remove('active'));
-        
-        slideIndex++;
-        if (slideIndex > slides.length) slideIndex = 1;
-        
-        // Adiciona classes novas de uma vez
-        slides[slideIndex - 1].classList.add('active');
-        if (dots[slideIndex - 1]) {
-            dots[slideIndex - 1].classList.add('active');
-        }
-    });
+    // Remove classes de todos
+    slides.forEach(slide => slide.classList.remove("active")); /*2ª parte*/
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    // Incrementa índice
+    slideIndex++;
+    if (slideIndex > slides.length) slideIndex = 1;
+
+    // Ativa slide e dot corretos
+    slides[slideIndex - 1].classList.add("active");
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add("active");
+    } /*final da 2ª parte*/
+
     
     autoSlideTimer = setTimeout(showSlides, 8000);
 }
 
-// ✅ CONFIGURAÇÃO OTIMIZADA DOS DOTS
-for (let i = 0; i < dots.length; i++) {
-    dots[i].addEventListener("click", () => {
+// Dots - clique manual
+dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
         clearAutoSlide();
-        
-        requestAnimationFrame(() => {
-            // AGRUPAR TODAS AS ALTERAÇÕES
-            const activeElements = document.querySelectorAll('.slide.active, .dot.active');
-            activeElements.forEach(el => el.classList.remove('active'));
-            
-            slideIndex = i + 1;
-            slides[i].classList.add('active');
-            if (dots[i]) dots[i].classList.add('active');
-        });
-        
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(d => d.classList.remove("active"));
+
+        slideIndex = i + 1;
+        slides[i].classList.add("active");
+        dot.classList.add("active");
+
         autoSlideTimer = setTimeout(showSlides, 8000);
     });
-}
+});
 
-// ✅ CONFIGURAÇÃO OTIMIZADA DAS SETAS
-const prevButton = document.querySelector(".prev");
-const nextButton = document.querySelector(".next");
+// Setas - clique manual
+const prevButton = document.querySelector(".hero .prev");
+const nextButton = document.querySelector(".hero .next");
 
 if (prevButton) {
     prevButton.addEventListener("click", () => {
         clearAutoSlide();
-        
-        requestAnimationFrame(() => {
-            const activeElements = document.querySelectorAll('.slide.active, .dot.active');
-            activeElements.forEach(el => el.classList.remove('active'));
-            
-            slideIndex--;
-            if (slideIndex < 1) slideIndex = slides.length;
-            
-            slides[slideIndex - 1].classList.add('active');
-            if (dots[slideIndex - 1]) {
-                dots[slideIndex - 1].classList.add('active');
-            }
-        });
-        
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        slideIndex--;
+        if (slideIndex < 1) slideIndex = slides.length;
+
+        slides[slideIndex - 1].classList.add("active");
+        dots[slideIndex - 1]?.classList.add("active");
+
         autoSlideTimer = setTimeout(showSlides, 8000);
     });
 }
@@ -225,20 +214,15 @@ if (prevButton) {
 if (nextButton) {
     nextButton.addEventListener("click", () => {
         clearAutoSlide();
-        
-        requestAnimationFrame(() => {
-            const activeElements = document.querySelectorAll('.slide.active, .dot.active');
-            activeElements.forEach(el => el.classList.remove('active'));
-            
-            slideIndex++;
-            if (slideIndex > slides.length) slideIndex = 1;
-            
-            slides[slideIndex - 1].classList.add('active');
-            if (dots[slideIndex - 1]) {
-                dots[slideIndex - 1].classList.add('active');
-            }
-        });
-        
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+
+        slides[slideIndex - 1].classList.add("active");
+        dots[slideIndex - 1]?.classList.add("active");
+
         autoSlideTimer = setTimeout(showSlides, 8000);
     });
 }
