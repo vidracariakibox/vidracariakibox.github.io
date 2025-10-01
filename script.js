@@ -12,8 +12,7 @@ const serviceImages = [
     { src: '/Imagens/10-800.webp', srcset: '/Imagens/10-400.webp 400w, /Imagens/10-800.webp 800w' },
     { src: '/Imagens/11-800.webp', srcset: '/Imagens/11-400.webp 400w, /Imagens/11-800.webp 800w' },
     { src: '/Imagens/12-800.webp', srcset: '/Imagens/12-400.webp 400w, /Imagens/12-800.webp 800w' },
-    
-];
+    ];
 
 // DADOS DOS 20 DEPOIMENTOS
 const testimonialsData = [
@@ -271,9 +270,13 @@ class ServicesCarousel {
             
             imagesToShow.forEach((src, index) => {
                 const img = document.createElement('img');
-                img.src = src;
-                img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;
-                img.loading = i === 0 ? 'eager' : 'lazy';
+                img.src = serviceImages[i].src;
+                img.srcset = serviceImages[i].srcset;
+                img.sizes = "(max-width: 480px) 400vw,80px";
+                /*img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;*/
+                /*img.loading = i === 0 ? 'eager' : 'lazy';*/
+                img.width = 308;
+                img.height = 308;
                 
                 img.onerror = () => {
                     console.warn(`Imagem não carregada: ${src}`);
