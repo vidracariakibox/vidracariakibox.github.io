@@ -189,13 +189,6 @@ header h1 {
     overflow: hidden;
 }
 
-.hero {
-    position: relative;
-    height: 70vh;
-    width: 100%;
-    overflow: hidden;
-}
-
 .hero .slide {
     height: 70vh;
     width: 100%;
@@ -452,7 +445,7 @@ header h1 {
 
 .services-carousel {
     display: flex;
-    transition: transform 0.15s ease-out; /* Transição mais rápida */
+    transition: transform 0.6s ease; /* Transição mais rápida */
 }
 
 /* Desktop Styles - 3 imagens por slide - TAMANHO ATUALIZADO */
@@ -643,7 +636,7 @@ header h1 {
 
 .testimonials-carousel {
     display: flex;
-    transition: transform 0.15s ease-out; /* Transição mais rápida */
+    transition: transform 0.6s ease; /* Transição mais rápida */
 }
 
 .testimonial-slide {
