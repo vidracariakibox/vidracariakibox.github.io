@@ -1,17 +1,17 @@
 // DADOS DAS IMAGENS ORIGINAIS
 const serviceImages = [
-    { src: '/Imagens/1.webp'},
-    { src: '/Imagens/2.webp'},
-    { src: '/Imagens/3.webp'},
-    { src: '/Imagens/4.webp'},
-    { src: '/Imagens/5.webp'},
-    { src: '/Imagens/6.webp'},
-    { src: '/Imagens/7.webp'},
-    { src: '/Imagens/8.webp'},
-    { src: '/Imagens/9.webp'},
-    { src: '/Imagens/10.webp'},
-    { src: '/Imagens/11.webp'},
-    { src: '/Imagens/12.webp'},
+    { src: '/Imagens/1.webp', srcset: '/Imagens/1-400.webp 400w, /Imagens/1.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/2.webp', srcset: '/Imagens/2-400.webp 400w, /Imagens/2.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/3.webp', srcset: '/Imagens/3-400.webp 400w, /Imagens/3.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/4.webp', srcset: '/Imagens/4-400.webp 400w, /Imagens/4.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/5.webp', srcset: '/Imagens/5-400.webp 400w, /Imagens/5.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/6.webp', srcset: '/Imagens/6-400.webp 400w, /Imagens/6.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/7.webp', srcset: '/Imagens/7-400.webp 400w, /Imagens/7.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/8.webp', srcset: '/Imagens/8-400.webp 400w, /Imagens/8.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/9.webp', srcset: '/Imagens/9-400.webp 400w, /Imagens/9.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/10.webp', srcset: '/Imagens/10-400.webp 400w, /Imagens/10.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/11.webp', srcset: '/Imagens/11-400.webp 400w, /Imagens/11.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/12.webp', srcset: '/Imagens/12-400.webp 400w, /Imagens/12.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
     ];
 
 // DADOS DOS 20 DEPOIMENTOS
@@ -268,18 +268,19 @@ class ServicesCarousel {
         const endIndex = startIndex + this.slidesPerView;
         const imagesToShow = serviceImages.slice(startIndex, endIndex);
         
-        imagesToShow.forEach((src, index) => {
+        imagesToShow.forEach((imgData, index) => {
             const img = document.createElement('img');
-            img.src = serviceImages[startIndex + index].src;
+            img.src = imgData.src;                  // imagem padrão (desktop)
+            img.srcset = imgData.srcset;            // versões responsivas
+            img.sizes = imgData.sizes;              // instrução para navegador
             img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;
             img.loading = index === 0 ? 'eager' : 'lazy';
             img.decoding = 'async';
-            img.width = 800;
-            img.height = 600;
+            img.width = 1080;                       // tamanho real da imagem maior
+            img.height = 1080;
             
-            // ✅ SOLUÇÃO 1: Use uma classe CSS ao invés de inline styles
             img.onerror = () => {
-                console.warn(`Imagem não carregada: ${serviceImages[startIndex + index].src}`);
+                console.warn(`Imagem não carregada: ${imgData.src}`);
                 img.classList.add('img-error');
                 img.alt = 'Imagem não disponível';
             };
@@ -290,6 +291,7 @@ class ServicesCarousel {
         this.carousel.appendChild(slide);
     }
 }
+
     
     createDots() {
         this.dotsContainer.innerHTML = '';
