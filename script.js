@@ -1,20 +1,24 @@
 // ==================== DADOS DAS IMAGENS ====================
 const serviceImages = [
-    { src: '/Imagens/1.webp', srcset: '/Imagens/1-400.webp 400w, /Imagens/1.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/2.webp', srcset: '/Imagens/2-400.webp 400w, /Imagens/2.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/3.webp', srcset: '/Imagens/3-400.webp 400w, /Imagens/3.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/4.webp', srcset: '/Imagens/4-400.webp 400w, /Imagens/4.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/5.webp', srcset: '/Imagens/5-400.webp 400w, /Imagens/5.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/6.webp', srcset: '/Imagens/6-400.webp 400w, /Imagens/6.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/7.webp', srcset: '/Imagens/7-400.webp 400w, /Imagens/7.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/8.webp', srcset: '/Imagens/8-400.webp 400w, /Imagens/8.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/9.webp', srcset: '/Imagens/9-400.webp 400w, /Imagens/9.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/10.webp', srcset: '/Imagens/10-400.webp 400w, /Imagens/10.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/11.webp', srcset: '/Imagens/11-400.webp 400w, /Imagens/11.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
-    { src: '/Imagens/12.webp', srcset: '/Imagens/12-400.webp 400w, /Imagens/12.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/1-Espeho-com-Led.webp', srcset: '/Imagens/1-Espeho-com-Led-308.webp 308w, /Imagens/1-Espeho-com-Led.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/2-Guarda-corpo.webp', srcset: '/Imagens/2-Guarda-corpo-308.webp 308w, /Imagens/2-Guarda-corpo.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/3-Vitro-de-2-folhas.webp', srcset: '/Imagens/3-Vitro-de-2-folhas-308.webp 308w, /Imagens/3-Vitro-de-2-folhas.webp 1080w', sizes: '(max-width: 768px) 1080px, 1080px'},
+    { src: '/Imagens/4-Divisoria-de-Eucatex.webp', srcset: '/Imagens/4-Divisoria-de-Eucatex-308.webp 308w, /Imagens/4-Divisoria-de-Eucatex.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/5-Box-frontal.webp', srcset: '/Imagens/5-Box-frontal-308.webp 308w, /Imagens/5-Box-frontal.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/6-Divisoria-de-Eucatex.webp', srcset: '/Imagens/6-Divisoria-de-Eucatex-308.webp 308w, /Imagens/6-Divisoria-de-Eucatex.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/7-Box-de-abrir-cromado.webp', srcset: '/Imagens/7-Box-de-abrir-cromado-308.webp 308w, /Imagens/7-Box-de-abrir-cromado.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/8-Espelho-organico-duplo.webp', srcset: '/Imagens/8-Espelho-organico-duplo-308.webp 308w, /Imagens/8-Espelho-organico-duplo.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/9-Porta-de-Abrir.webp', srcset: '/Imagens/9-Porta-de-Abrir-308.webp 308w, /Imagens/9-Porta-de-Abrir.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/10-Espelho-organico.webp', srcset: '/Imagens/10-Espelho-organico-308.webp 308w, /Imagens/10-Espelho-organico.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/11-Porta-de-abrir.webp', srcset: '/Imagens/11-Porta-de-abrir-308.webp 308w, /Imagens/11-Porta-de-abrir.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/12-Espelho-com-Led.webp', srcset: '/Imagens/12-Espelho-com-Led-308.webp 308w, /Imagens/12-Espelho-com-Led.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/13-Divisoria-de-vidro.webp', srcset: '/Imagens/13-Divisoria-de-vidro-308.webp 308w, /Imagens/13-Divisoria-de-vidro.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/14-Espelho-com-Led.webp', srcset: '/Imagens/14-Espelho-com-Led-308.webp 308w, /Imagens/14-Espelho-com-Led.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/15-Espelho-com-Led-triplo.webp', srcset: '/Imagens/15-Espelho-com-Led-triplo-308.webp 308w, /Imagens/15-Espelho-com-Led-triplo.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/16-Box-frontal.webp', srcset: '/Imagens/16-Box-frontal-308.webp 308w, /Imagens/16-Box-frontal.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
 ];
 
-// ==================== DADOS DOS 20 DEPOIMENTOS ====================
+// ==================== DADOS DOS 20 DEPOIMENTOS ==================== 
 const testimonialsData = [
     {
         name: "Rose Teixeira",
