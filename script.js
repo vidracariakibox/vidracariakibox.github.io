@@ -1,17 +1,17 @@
 // DADOS DAS IMAGENS ORIGINAIS
 const serviceImages = [
-    { src: '/Imagens/1.webp', srcset: '/Imagens/1-400.webp 400w, /Imagens/1.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/2.webp', srcset: '/Imagens/2-400.webp 400w, /Imagens/2.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/3.webp', srcset: '/Imagens/3-400.webp 400w, /Imagens/3.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/4.webp', srcset: '/Imagens/4-400.webp 400w, /Imagens/4.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/5.webp', srcset: '/Imagens/5-400.webp 400w, /Imagens/5.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/6.webp', srcset: '/Imagens/6-400.webp 400w, /Imagens/6.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/7.webp', srcset: '/Imagens/7-400.webp 400w, /Imagens/7.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/8.webp', srcset: '/Imagens/8-400.webp 400w, /Imagens/8.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/9.webp', srcset: '/Imagens/9-400.webp 400w, /Imagens/9.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/10.webp', srcset: '/Imagens/10-400.webp 400w, /Imagens/10.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/11.webp', srcset: '/Imagens/11-400.webp 400w, /Imagens/11.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
-    { src: '/Imagens/12.webp', srcset: '/Imagens/12-400.webp 400w, /Imagens/12.webp 1080w', sizes: '(max-width: 768px) 400px, 1080px'},
+    { src: '/Imagens/1.webp', srcset: '/Imagens/1-400.webp 400w, /Imagens/1.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/2.webp', srcset: '/Imagens/2-400.webp 400w, /Imagens/2.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/3.webp', srcset: '/Imagens/3-400.webp 400w, /Imagens/3.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/4.webp', srcset: '/Imagens/4-400.webp 400w, /Imagens/4.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/5.webp', srcset: '/Imagens/5-400.webp 400w, /Imagens/5.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/6.webp', srcset: '/Imagens/6-400.webp 400w, /Imagens/6.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/7.webp', srcset: '/Imagens/7-400.webp 400w, /Imagens/7.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/8.webp', srcset: '/Imagens/8-400.webp 400w, /Imagens/8.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/9.webp', srcset: '/Imagens/9-400.webp 400w, /Imagens/9.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/10.webp', srcset: '/Imagens/10-400.webp 400w, /Imagens/10.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/11.webp', srcset: '/Imagens/11-400.webp 400w, /Imagens/11.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
+    { src: '/Imagens/12.webp', srcset: '/Imagens/12-400.webp 400w, /Imagens/12.webp 1080w', sizes: '(max-width: 768px) 308px, 308px'},
     ];
 
 // DADOS DOS 20 DEPOIMENTOS
@@ -276,8 +276,8 @@ class ServicesCarousel {
             img.alt = `Serviço ${startIndex + index + 1} da Vidraçaria Kibox`;
             img.loading = index === 0 ? 'eager' : 'lazy';
             img.decoding = 'async';
-            img.width = 1080;                       // tamanho real da imagem maior
-            img.height = 1080;
+            img.width = 308;                       // tamanho real da imagem maior
+            img.height = 308;
             
             img.onerror = () => {
                 console.warn(`Imagem não carregada: ${imgData.src}`);
