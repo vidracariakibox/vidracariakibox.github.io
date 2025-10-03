@@ -16,6 +16,8 @@ const serviceImages = [
     { src: '/Imagens/14-Espelho-com-Led.webp', srcset: '/Imagens/14-Espelho-com-Led-308.webp 308w, /Imagens/14-Espelho-com-Led.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
     { src: '/Imagens/15-Espelho-com-Led-triplo.webp', srcset: '/Imagens/15-Espelho-com-Led-triplo-308.webp 308w, /Imagens/15-Espelho-com-Led-triplo.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
     { src: '/Imagens/16-Box-frontal.webp', srcset: '/Imagens/16-Box-frontal-308.webp 308w, /Imagens/16-Box-frontal.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/17-Porta-de-banheiro-cadeirante.webp', srcset: '/Imagens/17-Porta-de-banheiro-cadeirante-308.webp 308w, /Imagens/17-Porta-de-banheiro-cadeirante.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
+    { src: '/Imagens/18-Box-frontal-branco.webp', srcset: '/Imagens/18-Box-frontal-branco-308.webp 308w, /Imagens/18-Box-frontal-branco.webp 1080w', sizes: '(max-width: 768px) 308px, 1080px'},
 ];
 
 // ==================== DADOS DOS 20 DEPOIMENTOS ==================== 
