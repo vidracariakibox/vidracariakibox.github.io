@@ -395,21 +395,26 @@ header h1 {
     text-align: center;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .services::after {
     content: '';
-    background-image: url('/Imagens/Forma-abstrata.webp'); /* Imagem otimizada */
-    background-size: 80% auto;
-    background-repeat: no-repeat;
     position: absolute;
-    top: -100px;
-    right: 100px;
-    width: 500px;
-    height: -500px;
-    z-index: 0;
-    opacity: 0.1;
-    transform: rotate(15deg);
+    top: -170px;            /* gruda em cima */
+    right: 0;             /* gruda à direita */
+    width: 375px;
+    height: 375px;
+
+    background-image: url('/Imagens/Forma-abstrata.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    
+    display: block;
+    z-index: -2;           /* fica atrás do conteúdo */
+    transform: rotate(180deg);
+    
 }
 
 .services h2, .services p, .services-carousel-container {
@@ -1054,10 +1059,11 @@ header h1 {
     }
     
     .services::after {
-        top: -150px;
-        right: -200px;
-        width: 400px;
-        height: 400px;
+        width: 250px;
+        height: 250px;
+        top: -172px;   /* ajusta a posição */
+        right: -20px;
+        rotate: 10deg;
     }
     
     .service-slide img {
