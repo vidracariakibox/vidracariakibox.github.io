@@ -1,5 +1,7 @@
-// sw.js - SERVICE WORKER CORRIGIDO
-const CACHE_NAME = 'kibox-v2.0';
+// sw.js - SERVICE WORKER OTIMIZADO KIBOX VIDRAÇARIA
+const CACHE_NAME = 'kibox-v2.1';
+console.log('🔄 Service Worker kibox-v2.1 carregado com sucesso!');
+
 const urlsToCache = [
   '/',
   '/index.html',
@@ -8,40 +10,75 @@ const urlsToCache = [
   '/sw.js',
   '/robots.txt',
   '/sitemap.xml',
-  // ✅ ADICIONE AS IMAGENS AQUI:
-  'icons8-google-logo-48.webp',
-  '2.webp',
-  '3.webp',
-  '4.webp',
-  '5.webp',
-  '6.webp',
-  '7.webp', 
-  '8.webp',
-  '9.webp',
-  '10.webp',
-  '11.webp',
-  '12.webp'
+  // IMAGENS PRINCIPAIS
+  '/Imagens/icons8-google-logo-48.webp',
+  '/Imagens/1-Espeho-com-Led.webp',
+  '/Imagens/2-Guarda-corpo.webp',
+  '/Imagens/3-Vitro-de-2-folhas.webp',
+  '/Imagens/4-Divisoria-de-Eucatex.webp',
+  '/Imagens/5-Box-frontal.webp',
+  '/Imagens/6-Divisoria-de-Eucatex.webp',
+  '/Imagens/7-Box-de-abrir-cromado.webp',
+  '/Imagens/8-Espelho-organico-duplo.webp',
+  '/Imagens/9-Porta-de-Abrir.webp',
+  '/Imagens/10-Espelho-organico.webp',
+  '/Imagens/11-Porta-de-abrir.webp',
+  '/Imagens/12-Espelho-com-Led.webp',
+  '/Imagens/13-Divisoria-de-vidro.webp',
+  '/Imagens/14-Espelho-com-Led.webp',
+  '/Imagens/15-Espelho-com-Led-triplo.webp',
+  '/Imagens/16-Box-frontal.webp',
+  '/Imagens/17-Porta-de-banheiro-cadeirante.webp',
+  '/Imagens/18-Box-frontal-branco.webp',
+
+  
+  // IMAGENS OTIMIZADAS PARA MOBILE
+  '/Imagens/icons8-google-logo-48-308.webp',
+  '/Imagens/1-Espeho-com-Led-308.webp',
+  'Imagens/2-Guarda-corpo-308.webp',
+  'Imagens/3-Vitro-de-2-folhas-308.webp',
+  '/Imagens/4-Divisoria-de-Eucatex-308.webp',
+  '/Imagens/5-Box-frontal-308.webp',
+  '/Imagens/6-Divisoria-de-Eucatex-308.webp',
+  '/Imagens/7-Box-de-abrir-cromado-308.webp',
+  '/Imagens/8-Espelho-organico-duplo-308.webp',
+  '/Imagens/9-Porta-de-Abrir-308.webp',
+  '/Imagens/10-Espelho-organico-308.webp',
+  '/Imagens/11-Porta-de-abrir-308.webp',
+  '/Imagens/12-Espelho-com-Led-308.webp',
+  '/Imagens/13-Divisoria-de-vidro-308.webp',
+  '/Imagens/14-Espelho-com-Led-308.webp',
+  '/Imagens/15-Espelho-com-Led-triplo-308.webp',
+  '/Imagens/16-Box-frontal-308.webp',
+  '/Imagens/17-Porta-de-banheiro-cadeirante-308.webp',
+  '/Imagens/18-Box-frontal-branco-308.webp',
 ];
 
-// INSTALAÇÃO - Cache dos CRÍTICOS + IMAGENS
+// ✅ INSTALAÇÃO ÚNICA E OTIMIZADA
 self.addEventListener('install', function(event) {
   console.log('🛠️ Service Worker instalado - Kibox Vidraçaria');
+  
+  // ⚡ FORÇA ATIVAÇÃO IMEDIATA
   self.skipWaiting();
   
+  // 🎯 CACHE INTELIGENTE - SÓ CRÍTICOS
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
+        console.log('📦 Criando cache:', CACHE_NAME);
         return cache.addAll(urlsToCache);
       })
       .catch(function(error) {
-        console.log('❌ Falha no cache inicial:', error);
+        console.log('⚠️ Cache parcial - alguns arquivos podem falhar:', error);
+        // ❌ NÃO BLOQUEIA INSTALAÇÃO POR ERROS DE CACHE
       })
   );
 });
 
-// ATIVAÇÃO (mantido igual)
+// ✅ ATIVAÇÃO ÚNICA E COMPLETA
 self.addEventListener('activate', function(event) {
   console.log('🚀 Service Worker ativado - Kibox Vidraçaria');
+  
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
@@ -53,75 +90,83 @@ self.addEventListener('activate', function(event) {
         })
       );
     }).then(function() {
+      // ⚡ TOMA CONTROLE DE TODAS AS ABAS IMEDIATAMENTE
       return self.clients.claim();
     })
   );
 });
 
-// ✅ APENAS UM EVENT LISTENER PARA FETCH
+// ✅ FETCH ESTRATÉGICO - PERFORMANCE MÁXIMA
 self.addEventListener('fetch', function(event) {
-  // 🚫 Ignora requisições problemáticas
-  if (event.request.url.includes('googletagmanager') ||
-      event.request.url.includes('google-analytics') ||
-      event.request.url.includes('fonts.gstatic.com') ||
-      event.request.url.includes('fonts.googleapis.com')) {
+  const request = event.request;
+  
+  // 🚫 IGNORA REQUISIÇÕES PROBLEMÁTICAS
+  if (request.url.includes('googletagmanager') ||
+      request.url.includes('google-analytics') ||
+      request.url.includes('fonts.gstatic.com') ||
+      request.url.includes('fonts.googleapis.com')) {
     return;
   }
 
-  // 🎯 PARA NAVEGAÇÃO (PÁGINAS)
-  if (event.request.mode === 'navigate') {
-    event.respondWith(
-      fetch(event.request)
-        .catch(function() {
-          return caches.match('/index.html')
-            .then(function(response) {
-              return response || new Response(`
-                <!DOCTYPE html>
-                <html>
-                <head><title>Vidraçaria Kibox - Offline</title></head>
-                <body>
-                  <h1>📶 Você está offline</h1>
-                  <p>Conteúdo temporariamente indisponível.</p>
-                </body>
-                </html>
-              `, { headers: { 'Content-Type': 'text/html' }});
-            });
-        })
-    );
-    return; // ⚠️ IMPORTANTE: return para não executar o código abaixo
-  }
-
-  // 🖼️ PARA RECURSOS ESTÁTICOS (CSS, JS, IMAGENS)
+  // 🎯 ESTRATÉGIA: CACHE FIRST + NETWORK FALLBACK
   event.respondWith(
-    caches.match(event.request)
+    caches.match(request)
       .then(function(response) {
-        // ✅ Retorna do cache se existe
+        // ✅ RETORNA DO CACHE SE DISPONÍVEL
         if (response) {
           return response;
         }
 
-        // 🌐 Busca na rede e faz cache
-        return fetch(event.request).then(function(networkResponse) {
-          if (!networkResponse || networkResponse.status !== 200) {
+        // 🌐 BUSCA NA REDE
+        return fetch(request)
+          .then(function(networkResponse) {
+            // ✅ VERIFICA SE A RESPOSTA É VÁLIDA
+            if (!networkResponse || networkResponse.status !== 200) {
+              return networkResponse;
+            }
+
+            // ⚡ FAZ CACHE DA RESPOSTA PARA PRÓXIMAS REQUISIÇÕES
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(request, responseToCache);
+              });
+
             return networkResponse;
-          }
-
-          // ⚡ Faz cache da resposta
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME)
-            .then(function(cache) {
-              cache.put(event.request, responseToCache);
-            });
-
-          return networkResponse;
-        });
-      })
-      .catch(function() {
-        // 🆘 Fallback básico
-        if (event.request.destination === 'style') {
-          return new Response('', { headers: { 'Content-Type': 'text/css' }});
-        }
-        return new Response('');
+          })
+          .catch(function() {
+            // 🆘 FALLBACK OFFLINE INTELIGENTE
+            
+            // PARA PÁGINAS - RETORNA INDEX.HTML
+            if (request.mode === 'navigate') {
+              return caches.match('/index.html');
+            }
+            
+            // PARA IMAGENS - RETORNA IMAGEM PLACEHOLDER VAZIA
+            if (request.destination === 'image') {
+              return new Response(
+                '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#f0f0f0"/></svg>',
+                { headers: { 'Content-Type': 'image/svg+xml' } }
+              );
+            }
+            
+            // PARA CSS - RETORNA CSS VAZIO
+            if (request.destination === 'style') {
+              return new Response('', { headers: { 'Content-Type': 'text/css' } });
+            }
+            
+            // PADRÃO - RETORNA VAZIO
+            return new Response('Recurso offline');
+          });
       })
   );
 });
+
+// ✅ LIDA COM MENSAGENS (OPCIONAL - PARA FUTURAS FUNCIONALIDADES)
+self.addEventListener('message', function(event) {
+  if (event.data === 'skipWaiting') {
+    self.skipWaiting();
+  }
+});
+
+console.log('✅ Service Worker Kibox Vidraçaria carregado e pronto!');

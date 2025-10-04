@@ -476,3 +476,34 @@ if (document.readyState === 'loading') {
 } else {
     setTimeout(initCarousels, 0);
 }
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').then((registration) => {
+    console.log('✅ SW registrado:', registration);
+
+    // Força o navegador a verificar se há uma nova versão
+    registration.update();
+
+    // Se for detectada uma nova versão do SW
+    registration.addEventListener('updatefound', () => {
+      const newWorker = registration.installing;
+      console.log('⚡ Nova versão do SW encontrada!');
+
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          console.log('🚀 Nova versão instalada! Recarregando...');
+          window.location.reload(); // recarrega para aplicar as novas versões
+        }
+      });
+    });
+  }).catch((error) => {
+    console.error('❌ Falha ao registrar o Service Worker:', error);
+  });
+}
+// ✅ NOTIFICA TODAS AS ABAS SOBRE ATUALIZAÇÃO
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    console.log('🔄 Controller changed - recarregando página');
+    window.location.reload();
+  });
+}
