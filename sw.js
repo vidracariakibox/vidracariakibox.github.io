@@ -5,11 +5,24 @@ console.log('🔄 Service Worker kibox-v2.1 carregado com sucesso!');
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css', 
-  '/script.js',
+  '/styles.css?v=2.2', 
+  '/script.js?v=2.2',
   '/sw.js',
   '/robots.txt',
   '/sitemap.xml',
+  // 🎯 FONTES OTIMIZADAS
+  '/fonts/RedHatDisplay-Regular.woff2', 
+  '/fonts/RedHatDisplay-Medium.woff2', 
+  '/fonts/montserrat-semibold.woff2 ',
+  '/fonts/montserrat-regular.woff2',
+  '/fonts/montserrat-medium.woff2', 
+  '/fonts/montserrat-bold.woff2', 
+  '/fonts/Cinzel-SemiBold.woff2', 
+  '/fonts/Cinzel-Medium.woff2', 
+  '/fonts/Cinzel-Bold.woff2', 
+  '/fonts/RedHatDisplay-SemiBold.woff2',
+
+
   // IMAGENS PRINCIPAIS
   '/Imagens/icons8-google-logo-48.webp',
   '/Imagens/1-Espeho-com-Led.webp',
