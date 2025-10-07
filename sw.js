@@ -26,8 +26,7 @@ const urlsToCache = [
   '/fonts/RedHatDisplay-Regular.woff2',
   '/fonts/RedHatDisplay-SemiBold.woff2',
     
-
-    // 🎯 IMAGENS CRÍTICAS OTIMIZADAS
+  // 🎯 IMAGENS CRÍTICAS OTIMIZADAS
   '/Imagens/icons8-google-logo-48.webp',
   '/Imagens/1-Espeho-com-Led.webp',
   '/Imagens/2-Guarda-corpo.webp',
@@ -117,6 +116,15 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
   const request = event.request;
   
+  // 🔒 PROTEÇÃO CONTRA EXTENSÕES - CORREÇÃO DO ERRO
+  if (request.url.startsWith('chrome-extension://') ||
+      request.url.startsWith('moz-extension://') ||
+      request.url.startsWith('safari-extension://') ||
+      !request.url.startsWith('http')) {
+    console.log('🚫 Ignorando requisição de extensão:', request.url);
+    return;
+  }
+  
   // 🚫 IGNORA REQUISIÇÕES PROBLEMÁTICAS
   if (request.url.includes('googletagmanager') ||
       request.url.includes('google-analytics') ||
@@ -138,7 +146,7 @@ self.addEventListener('fetch', function(event) {
         return fetch(request)
           .then(function(networkResponse) {
             // ✅ VERIFICA SE A RESPOSTA É VÁLIDA
-            if (!networkResponse || networkResponse.status !== 200) {
+            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
               return networkResponse;
             }
 
