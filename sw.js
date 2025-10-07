@@ -1,6 +1,6 @@
 // sw.js - SERVICE WORKER OTIMIZADO KIBOX VIDRAÇARIA
-const CACHE_NAME = 'kibox-v2.4';
-console.log('🔄 Service Worker kibox-v2.4 carregado com sucesso!');
+const CACHE_NAME = 'kibox-v2.5';
+console.log('🔄 Service Worker kibox-v2.5 carregado com sucesso!');
 
 const urlsToCache = [
   '/',

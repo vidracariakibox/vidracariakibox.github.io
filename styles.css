@@ -24,7 +24,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/montserrat-regular.woff2') format('woff2');
+  src: url('/fonts/Montserrat-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -32,7 +32,7 @@ body {
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/montserrat-medium.woff2') format('woff2');
+  src: url('/fonts/Montserrat-medium.woff2') format('woff2');
 }
 
 @font-face {
@@ -40,7 +40,7 @@ body {
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/montserrat-semibold.woff2') format('woff2');
+  src: url('/fonts/Montserrat-semibold.woff2') format('woff2');
 }
 
 @font-face {
@@ -48,7 +48,7 @@ body {
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/montserrat-bold.woff2') format('woff2');
+  src: url('/fonts/Montserrat-bold.woff2') format('woff2');
 }
 
 /* Baskervville */
@@ -57,7 +57,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/baskervville-regular.woff2') format('woff2');
+  src: url('/fonts/Baskervville-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -65,57 +65,57 @@ body {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/baskervville-italic.woff2') format('woff2');
+  src: url('/fonts/Baskervville-Italic.woff2') format('woff2');
 }
 
-/* Red Hat Display */
+/* RedHatDisplayDisplay */
 @font-face {
-  font-family: 'Red Hat Display';
+  font-family: 'RedHatDisplayDisplay';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/redhat-regular.woff2') format('woff2');
+  src: url('/fonts/RedHatDisplay-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Red Hat Display';
+  font-family: 'RedHatDisplayDisplay';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/redhat-medium.woff2') format('woff2');
+  src: url('/fonts/RedHatDisplay-Medium.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Red Hat Display';
+  font-family: 'RedHatDisplayDisplay';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/redhat-bold.woff2') format('woff2');
+  src: url('/fonts/RedHatDisplay-SemiBold.woff2') format('woff2');
 }
 
-/* Cinzel */
+/* CInzel */
 @font-face {
-  font-family: 'Cinzel';
+  font-family: 'CInzel';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/cinzel-regular.woff2') format('woff2');
+  src: url('/fonts/Cinzel-Bold.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Cinzel';
+  font-family: 'CInzel';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/cinzel-medium.woff2') format('woff2');
+  src: url('/fonts/Cinzel-Medium.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Cinzel';
+  font-family: 'CInzel';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/cinzel-semibold.woff2') format('woff2');
+  src: url('/fonts/Cinzel-SemiBold.woff2') format('woff2');
 }
 
 /* ==================== */
@@ -263,7 +263,7 @@ header h1 {
 }
 
 .hero .slide-content p {
-    font-family: 'Red Hat Display';
+    font-family: 'RedHatDisplayDisplay';
     font-size: clamp(14px, 2.5vw, 20px);
     margin: 0;
 }
@@ -432,7 +432,7 @@ header h1 {
 }
 
 .services p {
-    font-family: 'Red Hat Display';
+    font-family: 'RedHatDisplayDisplay';
     font-size: clamp(16px, 3vw, 18px);
     color: #000000;
     margin: 0 0 40px;
@@ -704,7 +704,7 @@ header h1 {
 }
 
 .review-header p {
-    font-family: 'montserrat';
+    font-family: 'Montserrat';
     margin: 0;
     color: #333;
     font-size: 16px;
@@ -807,7 +807,7 @@ header h1 {
 }
 
 .footer-grid h3 {
-    font-family: 'Cinzel';
+    font-family: 'CInzel';
     font-size: 20px;
     font-weight: 400;
     color: #FFFFFF;
@@ -1173,7 +1173,7 @@ body {
 }
 
 .footer-grid h3 {
-    font-family: 'Cinzel';
+    font-family: 'CInzel';
 }
 /* ==================== */
 /* VELOCIDADE CARROSSÉIS DESKTOP */
@@ -1210,9 +1210,9 @@ body {
 }
 
 .hero .slide-content p {
-    font-family: 'Red Hat Display';
+    font-family: 'RedHatDisplayDisplay';
 }
 
 .footer-grid h3 {
-    font-family: 'Cinzel';
+    font-family: 'CInzel';
 }
