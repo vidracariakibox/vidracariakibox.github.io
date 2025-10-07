@@ -465,7 +465,6 @@ class TestimonialsCarousel {
 }
 
 // ==================== INICIALIZAÇÃO ====================
-// ==================== INICIALIZAÇÃO ====================
 function initCarousels() {
     if (slides.length > 0) showSlides();
     new ServicesCarousel();
@@ -478,9 +477,8 @@ if (document.readyState === 'loading') {
     setTimeout(initCarousels, 0);
 }
 
-// ✅ SERVICE WORKER COM ATUALIZAÇÃO SEM LOOP
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?v=2.5').then((registration) => {
+  navigator.serviceWorker.register('/sw.js').then((registration) => {
     console.log('✅ SW registrado:', registration);
 
     // Força o navegador a verificar se há uma nova versão
@@ -502,18 +500,10 @@ if ('serviceWorker' in navigator) {
     console.error('❌ Falha ao registrar o Service Worker:', error);
   });
 }
-
-// ✅ CORREÇÃO - CONTROLLER CHANGE SEM LOOP
+// ✅ NOTIFICA TODAS AS ABAS SOBRE ATUALIZAÇÃO
 if ('serviceWorker' in navigator) {
-  let isReloading = false;
-  
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (!isReloading && navigator.serviceWorker.controller) {
-      console.log('🔄 Controller changed - recarregando página uma vez');
-      isReloading = true;
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-    }
+    console.log('🔄 Controller changed - recarregando página');
+    window.location.reload();
   });
 }
