@@ -478,7 +478,7 @@ if (document.readyState === 'loading') {
 }
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?v=2.3').then((registration) => {
+  navigator.serviceWorker.register('/sw.js?v=2.5').then((registration) => {
     console.log('✅ SW registrado:', registration);
 
     // Força o navegador a verificar se há uma nova versão
