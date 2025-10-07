@@ -49,7 +49,7 @@ const urlsToCache = [
 
   
   // IMAGENS OTIMIZADAS PARA MOBILE
-  '/Imagens/icons8-google-logo-48-308.webp',
+  '/Imagens/icons8-google-logo-48-308.png',
   '/Imagens/1-Espeho-com-Led-308.webp',
   '/Imagens/2-Guarda-corpo-308.webp',
   '/Imagens/3-Vitro-de-2-folhas-308.webp',
