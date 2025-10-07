@@ -1,28 +1,26 @@
 // sw.js - SERVICE WORKER OTIMIZADO KIBOX VIDRAÇARIA
-const CACHE_NAME = 'kibox-v2.5';
-console.log('🔄 Service Worker kibox-v2.1 carregado com sucesso!');
+const CACHE_NAME = 'kibox-v2.4';
+console.log('🔄 Service Worker kibox-v2.4 carregado com sucesso!');
 
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css?v=2.5', 
-  '/script.js?v=2.5',
+  '/styles.css', 
+  '/script.js',
   '/sw.js',
   '/robots.txt',
   '/sitemap.xml',
   // 🎯 FONTES OTIMIZADAS
-  '/fonts/RedHatDisplay-Regular.woff2', 
-  '/fonts/RedHatDisplay-Medium.woff2', 
-  '/fonts/montserrat-semibold.woff2 ',
+  '/fonts/RedHatDisplay-Regular.woff2',
+  '/fonts/RedHatDisplay-Medium.woff2',
+  '/fonts/montserrat-semibold.woff2',
   '/fonts/montserrat-regular.woff2',
-  '/fonts/montserrat-medium.woff2', 
-  '/fonts/montserrat-bold.woff2', 
-  '/fonts/Cinzel-SemiBold.woff2', 
-  '/fonts/Cinzel-Medium.woff2', 
-  '/fonts/Cinzel-Bold.woff2', 
+  '/fonts/montserrat-medium.woff2',
+  '/fonts/montserrat-bold.woff2',
+  '/fonts/Cinzel-SemiBold.woff2',
+  '/fonts/Cinzel-Medium.woff2',
+  '/fonts/Cinzel-Bold.woff2',
   '/fonts/RedHatDisplay-SemiBold.woff2',
-
-
   // IMAGENS PRINCIPAIS
   '/Imagens/icons8-google-logo-48.webp',
   '/Imagens/1-Espeho-com-Led.webp',
@@ -48,8 +46,8 @@ const urlsToCache = [
   // IMAGENS OTIMIZADAS PARA MOBILE
   '/Imagens/icons8-google-logo-48-308.webp',
   '/Imagens/1-Espeho-com-Led-308.webp',
-  'Imagens/2-Guarda-corpo-308.webp',
-  'Imagens/3-Vitro-de-2-folhas-308.webp',
+  '/Imagens/2-Guarda-corpo-308.webp',
+  '/Imagens/3-Vitro-de-2-folhas-308.webp',
   '/Imagens/4-Divisoria-de-Eucatex-308.webp',
   '/Imagens/5-Box-frontal-308.webp',
   '/Imagens/6-Divisoria-de-Eucatex-308.webp',
