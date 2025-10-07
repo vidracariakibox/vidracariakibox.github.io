@@ -391,7 +391,7 @@ class TestimonialsCarousel {
                 const card = document.createElement('div');
                 card.className = 'review-card';
                 card.innerHTML = `
-                    <img src="/Imagens/icons8-google-logo-48.webp" alt="Google" class="google-review-logo" onerror="this.style.display='none'">
+                    <img src="/Imagens/icons8-google-logo-48.png" alt="Google" class="google-review-logo" onerror="this.style.display='none'">
                     <div class="review-header">
                         <div class="avatar" style="background-color: ${testimonial.color};">${testimonial.initial}</div>
                         <p><strong>${testimonial.name}</strong></p>
