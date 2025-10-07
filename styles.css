@@ -68,9 +68,9 @@ body {
   src: url('/fonts/Baskervville-Italic.woff2') format('woff2');
 }
 
-/* RedHatDisplayDisplay */
+/* Red Hat Display */
 @font-face {
-  font-family: 'RedHatDisplayDisplay';
+  font-family: 'Red Hat Display';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -78,7 +78,7 @@ body {
 }
 
 @font-face {
-  font-family: 'RedHatDisplayDisplay';
+  font-family: 'Red Hat Display';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -86,24 +86,32 @@ body {
 }
 
 @font-face {
-  font-family: 'RedHatDisplayDisplay';
+  font-family: 'Red Hat Display';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-display: swap;
   src: url('/fonts/RedHatDisplay-SemiBold.woff2') format('woff2');
 }
 
-/* CInzel */
 @font-face {
-  font-family: 'CInzel';
+  font-family: 'Red Hat Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/RedHatDisplay-Bold.woff2') format('woff2');
+}
+
+/* Cinzel */
+@font-face {
+  font-family: 'Cinzel';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Cinzel-Bold.woff2') format('woff2');
+  src: url('/fonts/Cinzel-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'CInzel';
+  font-family: 'Cinzel';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -111,11 +119,19 @@ body {
 }
 
 @font-face {
-  font-family: 'CInzel';
+  font-family: 'Cinzel';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
   src: url('/fonts/Cinzel-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Cinzel-Bold.woff2') format('woff2');
 }
 
 /* ==================== */
