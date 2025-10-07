@@ -1177,19 +1177,19 @@ header h1 {
 }
 /* GARANTIR FONTES - SIMPLES E DIRETO */
 body {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hero .slide-content h2 {
-    font-family: 'Baskervville';
+    font-family: 'Baskervville', serif;
 }
 
 .hero .slide-content p {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
 }
 
 .footer-grid h3 {
-    font-family: 'Cinzel';
+    font-family: 'Cinzel', serif;
 }
 /* ==================== */
 /* VELOCIDADE CARROSSÉIS DESKTOP */
@@ -1218,7 +1218,7 @@ body {
 }
 /* === FONT STACKS SIMPLIFICADOS === */
 body {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hero .slide-content h2 {
@@ -1226,9 +1226,9 @@ body {
 }
 
 .hero .slide-content p {
-    font-family: 'Red Hat Display';
+    font-family: 'Red Hat Display',sans-serif;
 }
 
 .footer-grid h3 {
-    font-family: 'Cinzel';
+    font-family: 'Cinzel', serif;
 }
