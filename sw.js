@@ -27,7 +27,7 @@ const urlsToCache = [
   '/fonts/RedHatDisplay-SemiBold.woff2',
     
   // 🎯 IMAGENS CRÍTICAS OTIMIZADAS
-  '/Imagens/icons8-google-logo-48.webp',
+  '/Imagens/icons8-google-logo-48.png',
   '/Imagens/1-Espeho-com-Led.webp',
   '/Imagens/2-Guarda-corpo.webp',
   '/Imagens/3-Vitro-de-2-folhas.webp',
