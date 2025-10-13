@@ -245,58 +245,20 @@ font-src 'self' data:;">
                     <button class="dot" aria-label="Slide 3" role="tab" aria-selected="false"></button>
                 </div>
             </div>
-        <!--</section>
+        </section>
         
-        <!-- CTA Section --
+        <!-- CTA Section -->
         <section class="text-btn" aria-labelledby="cta-heading">
             <p id="cta-heading"><strong><span class="espacamento-texto">Atuamos exclusivamente no centro de <span class="no-break">Ribeirão Preto</span></span></strong><br><br> Para suprir o grande número de prédios e lojas comerciais, sabemos da necessidade e da rapidez tanto no orçamento quanto na execução do serviço.</p>
             <a href="https://api.whatsapp.com/send/?phone=5516996197527&text&type=phone_number&app_absent=0" aria-label="Solicitar orçamento via WhatsApp">
                 <img src="/Imagens/icons8-whatsapp-48.webp" 
                 alt="Ícone WhatsApp"
                 width=48 
-                height="48"   >
+                height="48"   
                 <strong>Peça seu Orçamento</strong>
             </a>
-        </section> -->
-            <!-- CTA Section -->
-<section class="text-btn" aria-labelledby="cta-heading">
-  <p id="cta-heading">
-    <strong><span class="espacamento-texto">Atuamos exclusivamente no centro de 
-    <span class="no-break">Ribeirão Preto</span></span></strong><br><br>
-    Para suprir o grande número de prédios e lojas comerciais, sabemos da necessidade e da rapidez tanto no orçamento quanto na execução do serviço.
-  </p>
-
-  <a href="https://api.whatsapp.com/send/?phone=5516996197527&text&type=phone_number&app_absent=0" 
-     id="whatsapp-link" 
-     aria-label="Solicitar orçamento via WhatsApp">
-    <img src="/Imagens/icons8-whatsapp-48.webp" 
-         alt="Ícone WhatsApp"
-         width="48" 
-         height="48">
-    <strong>Peça seu Orçamento</strong>
-  </a>
-</section>
-
-<script>
-  document.getElementById('whatsapp-link').addEventListener('click', function(e) {
-    e.preventDefault(); // Impede o redirecionamento imediato
-
-    // Dispara o evento para o GTM
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      'event': 'clique_whatsapp',
-      'category': 'Contato',
-      'label': 'Botão WhatsApp - Site'
-    });
-
-    // Aguarda 200ms antes de abrir o WhatsApp
-    setTimeout(() => {
-      window.location.href = this.href;
-    }, 200);
-  });
-</script>
-
-        
+        </section>
+                    
         <!-- Services Section -->
         <section class="services" aria-labelledby="services-heading">
             <h2 id="services-heading">Nossos serviços</h2>
