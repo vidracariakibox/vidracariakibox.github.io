@@ -5,9 +5,9 @@ console.log('🔄 Service Worker kibox-v2.7 carregado com sucesso!');
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css', 
-  '/script.js',
-  '/sw.js',
+  '/styles.css?v=2.7', 
+  '/script.js?v=2.7',
+  /*'/sw.js',*/
   '/robots.txt',
   '/sitemap.xml',
   // 🎯 FONTES OTIMIZADAS
@@ -49,7 +49,6 @@ const urlsToCache = [
 
   
   // IMAGENS OTIMIZADAS PARA MOBILE
-  '/Imagens/icons8-google-logo-48.png',
   '/Imagens/1-Espeho-com-Led-308.webp',
   '/Imagens/2-Guarda-corpo-308.webp',
   '/Imagens/3-Vitro-de-2-folhas-308.webp',
@@ -130,7 +129,7 @@ self.addEventListener('fetch', function(event) {
       request.url.includes('google-analytics') ||
       request.url.includes('fonts.gstatic.com') ||
       request.url.includes('fonts.googleapis.com')) {
-    return;
+    return fetch(request);
   }
 
   // 🎯 ESTRATÉGIA: CACHE FIRST + NETWORK FALLBACK
