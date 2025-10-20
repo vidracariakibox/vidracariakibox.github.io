@@ -889,11 +889,13 @@ header h1 {
 
 .footer-bottom a:hover {
     opacity: 0.8;
+    color: #f5b400;
 }
 
 .footer-dev {
     text-align: right;
 }
+
 
 
 /* === RESPONSIVE STYLES === */
